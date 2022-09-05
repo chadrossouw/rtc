@@ -1,0 +1,182 @@
+.events_description {
+	overflow: hidden;
+}
+
+html {
+	overflow-x: hidden;
+	width: 100vw;
+}
+
+:root{
+	--margin:5%;
+	--header:120px;
+	/*--header-height:10px;*/
+}
+
+
+@media only screen and (min-width:1000px){
+	:root {
+		--margin:7.5%;
+	}
+}
+
+@media only screen and (min-width:1200px){
+	:root {
+		--margin:15%;
+		--header:160px;
+	}
+
+}
+
+body {
+	background: $color__background-body; // Fallback for when there is no custom background color defined.
+}
+
+
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+
+/* Make sure embeds and iframes fit their containers. */
+embed,
+iframe,
+object {
+	max-width: 100%;
+}
+
+img {
+	height: auto; // Make sure images are scaled correctly.
+	max-width: 100%; // Adhere to container width.
+}
+
+figure {
+	margin: 1em 0; // Extra wide images within figure tags don't overflow the content area.
+}
+
+
+/*Lists*/
+ul,
+ol {
+	margin: 0 0 1.5em 3em;
+}
+
+ul {
+	list-style: none;
+}
+
+ol {
+	list-style: decimal;
+}
+
+li > ul,
+li > ol {
+	margin-bottom: 0;
+	margin-left: 1.5em;
+}
+
+dt {
+	font-weight: 700;
+}
+
+dd {
+	margin: 0 1.5em 1.5em;
+}
+
+/*Links*/
+a {
+	color: $color__link;
+
+	&:visited {
+		color: $color__link-visited;
+	}
+
+	&:hover,
+	&:focus,
+	&:active {
+		color: $color__link-hover;
+	}
+
+	&:focus {
+		outline: thin dotted;
+	}
+
+	&:hover,
+	&:active {
+		outline: 0;
+	}
+}
+
+/*Input Fields*/
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+	color: $color__text-input;
+	border: 1px solid $color__border-input;
+	border-radius: 3px;
+	padding: 3px;
+	max-width:100%;
+	&:focus {
+		color: $color__text-input-focus;
+	}
+}
+
+select {
+	border: 1px solid $color__border-input;
+}
+
+textarea {
+	width: 100%;
+}
+
+/*Buttons*/
+
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+	background-color: $color_deep_green;
+	color: white;
+	padding: 1rem 2rem;
+	cursor:pointer;
+	border:none;
+	&:hover {
+		background-color: $color_sea_blue;
+	}
+
+	&:active,
+	&:focus {
+		border-color: $color__border-button-focus;
+	}
+}
+
+.margins {
+	margin-left:var(--margin);
+	margin-right:var(--margin);
+}
+
+.padding {
+	padding-left:var(--margin);
+	padding-right:var(--margin);
+}
+
+.container {
+	padding-top: 2rem;
+	padding-bottom: 2rem;
+	display: block;
+	text-align: center;
+}
