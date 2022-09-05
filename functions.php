@@ -136,19 +136,13 @@ require get_template_directory() . '/inc/custom_post_types.php';
  * Functions for Content Blocks
  */
 require get_template_directory() . '/inc/get_blocks.php';
-require get_template_directory() . '/inc/woocommerce.php';
+
 
 /**
   * REST API functions
   */
 
 require get_template_directory() . '/inc/rest.php';
-
-/**
-  * Save Post Action
-  */
-
-require get_template_directory() . '/inc/save_post.php';
 
 
 /*Disable Gutenberg*/

@@ -395,17 +395,6 @@ section.bl_home_section:nth-of-type(1)::before{
 	position: relative;
 }
 
-.home_section::after {
-	border-bottom: 3px solid $color_text_black;
-	position: absolute;
-	content: '';
-	height: 8px;
-	width: 100vw;
-	bottom: 0;
-	left: calc(50% - 50vw);
-    z-index: 1;
-	border-top: 1px solid $color_text_black;
-}
 
 /*Banner*/
 .banner_container {

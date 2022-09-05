@@ -154,14 +154,14 @@ input[type="submit"] {
 	padding: 1rem 2rem;
 	cursor:pointer;
 	border:none;
-	&:hover {
+	/*&:hover {
 		background-color: $color_sea_blue;
 	}
 
 	&:active,
 	&:focus {
-		border-color: $color__border-button-focus;
-	}
+		//border-color: $color__border-button-focus;
+	}*/
 }
 
 .margins {

@@ -17,8 +17,8 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-	<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Playfair+Display:ital,wght@0,400;1,500&display=swap" rel="stylesheet"> 
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Londrina+Solid:wght@300;400&display=swap" rel="stylesheet"> 
 	<!-- Google Tag Manager -->
 	<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 	new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -39,13 +39,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 	<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e( 'Skip to content', 'aaa' ); ?></a>
 
 	<header id="masthead" class="site-header home_section">
-		<div class="site-login">
-			<?php echo user_login_or_account() ?>
-		</div>
+		
 		<div class="site-branding">
-		<div class='bl_header'><a href="/"><img src="/wp-content/themes/reclaimthecity/assets/TBL_logo.svg" class="bl_header_image"></a></div>
+		<div class='bl_header'><a href="/"><img src="/wp-content/themes/reclaimthecity/assets/rtc_logo.svg" class="bl_header_image"></a></div>
 		</div><!-- .site-branding -->
-		<div class="nav-search-form desktop"><?php get_search_form(); ?> </div>
 
 		<nav id="site-navigation" class="main-navigation">
 			<button class="hamburger hamburger--squeeze" type="button" id="hamburger" aria-controls="primary-menu" aria-expanded="false">
@@ -62,12 +59,10 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 					)
 				);
 				?>
-				<div class="nav-search-form mobile"><?php get_search_form(); ?> </div><!-- #site-navigation -->
+				<!-- #site-navigation -->
 			</div>
 		</nav>
 
-		<?php if ( function_exists( 'reclaimthecity_woocommerce_header_cart' ) ) {
-				reclaimthecity_woocommerce_header_cart();
-			} ?>
+		
 	</header><!-- #masthead -->
 	<div id="sticky-header-jump-fix"></div>
