@@ -64,8 +64,45 @@
 									<h3 class = 'donate_block_follow_heading title red'>
 										<?php echo get_sub_field('donate_block_follow_heading');?>
 									</h3>
+									<div class = 'social_media_block'>
+										<?php get_social_buttons(); ?>
+									</div>
 								</div>
 							</div>
+
+					<?php elseif ( get_row_layout()=='social_media_block'): ?>
+						<?php $feed = (get_sub_field('social_media_feed'));?>
+						<div class = "social_media_feed margins <?php echo $feed;?>">
+							<?php if(get_sub_field('social_media_title')): ?>
+								<h2 class = "social_media_title title"><?php echo get_sub_field('social_media_title'); ?></h2>
+							<?php endif; ?>
+							<div class="embed-container">
+								<?php var_dump(get_sub_field('social_media_feed_test'));?>
+    							<?php get_sub_field('social_media_feed_test'); ?>
+							</div>
+						</div>
+
+					<?php elseif ( get_row_layout()=='partners_block'): ?>
+						<div class = "partners_block margins">
+							<?php if(get_sub_field('partners_title')): ?>
+								<h2 class = "partners_title title"><?php echo get_sub_field('partners_title'); ?></h2>
+							<?php endif; ?>
+							<?php if(get_sub_field('partners_wysiwyg')): ?>
+								<?php apply_filters('the_content',the_sub_field('partners_wysiwyg')); ?> 
+							<?php endif; ?>
+							<div class = 'partners_logos'>
+								<?php if( have_rows('partner_logo_repeater')):?>
+									<?php while( have_rows('partner_logo_repeater')): the_row();?>
+										<a href="<?php echo get_sub_field('partner_url'); ?>" target="_blank">
+											<span class="screen-reader-text"><?php echo get_sub_field('partner_name'); ?></span>
+											<?php echo wp_get_attachment_image(get_sub_field('partner_logo'),'medium'); ?>
+										</a>
+									<?php endwhile;
+								endif; ?>	
+							</div>
+						</div>
+					
+
 				<?php endif;?>
 		<?php endwhile; ?>
 		</div>

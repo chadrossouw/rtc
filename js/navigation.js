@@ -193,9 +193,9 @@
 		}
 	  }
 	  
-	  document.querySelectorAll('details').forEach((el) => {
+	  /* document.querySelectorAll('details').forEach((el) => {
 		new Accordion(el);
-	  });
+	  }); */
 
 
 	  let couponToggle = document.querySelector('.woocommerce-form-coupon-toggle');

@@ -304,3 +304,29 @@ $form_tag['values'][] = $posttitle;
 return $form_tag;
 }
 add_filter( 'wpcf7_form_tag', 'getRefererPage' );
+
+/**
+ *  Enable Options Page for ACF
+ */
+if( function_exists('acf_add_options_page') ) {
+	acf_add_options_page(array(
+		'page_title' 	=> 'Site Options',
+		'menu_title'	=> 'Site Options',
+		'menu_slug' 	=> 'site_options',
+		'capability'	=> 'activate_plugins',
+		'position'		=> '9',
+		'redirect'		=> false,
+	));
+}
+
+/*removing content editor*/
+add_action( 'admin_init', 'hide_editor' );
+function hide_editor() {
+  $post_id = $_GET['post'] ? $_GET['post'] : $_POST['post_ID'] ;
+  if( !isset( $post_id ) ) return;
+  $post_type = get_post_type($post_id);
+  if($post_type == 'page'|| $post_type=='collection'){
+    remove_post_type_support('page', 'editor');
+  }
+}
+

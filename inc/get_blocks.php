@@ -239,3 +239,29 @@ function bl_related(){
         }
     }
 }
+
+function get_social_buttons(){
+    $social_media = get_field('social_media','option'); 
+    $social_media_array=['facebook','twitter','instagram','youtube'];?>
+    <div class="flex flex-20 so-me">
+        <?php foreach($social_media_array as $item){ ?>
+            <?php if ($social_media[$item]){?>
+            <a href="<?php echo $social_media[$item]; ?>"target="_blank"><span class="screen-reader-text"><?php echo $item; ?></span><?php echo file_get_contents(get_template_directory() . '/assets/'.$item.'.svg'); ?></a>
+            <?php } ?>
+        <?php } ?>
+    </div>
+<?php 
+}
+
+function get_footer_social_buttons(){
+    $social_media = get_field('social_media','option'); 
+    $social_media_array=['facebook','twitter','instagram','youtube'];?>
+    <div class="flex flex-20 so-me">
+        <?php foreach($social_media_array as $item){ ?>
+            <?php if ($social_media[$item]){?>
+            <a href="<?php echo $social_media[$item]; ?>"target="_blank"><span class="screen-reader-text"><?php echo $item; ?></span><?php echo file_get_contents(get_template_directory() . '/assets/'.$item.'_white.svg'); ?></a>
+            <?php } ?>
+        <?php } ?>
+    </div>
+<?php 
+}
