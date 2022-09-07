@@ -23,6 +23,7 @@
 
 	<div class="entry-content">
 	<?php
+	
 		//var_dump(get_field('layouts'));
 		if( have_rows('layouts') ): ?>
 			<div class="layouts">
@@ -48,7 +49,6 @@
 							<div class="swiper-button-next"></div>
 						</div>
 					</div>
-
 					<?php elseif ( get_row_layout()=='text_block'): ?>
 						<?php if(get_sub_field('text_block_column_count') == 'one'){ 
 							$column = 'one_column';
@@ -113,12 +113,43 @@
 								endif; ?>	
 							</div>
 						</div>
-					
+						
+					<?php endif;?>
 
+					<?php if ( get_row_layout()=='image_carousel'): ?>
+						<div class = "carousel_container">
+							<?php if(get_sub_field('carousel_title')): ?>
+								<h2 class = "carousel_title title"><?php echo get_sub_field('carousel_title'); ?></h2>
+							<?php endif; ?>
+							<div class = "general_carousel swiper">
+								<div class = "swiper-wrapper">
+									<?php foreach( get_sub_field('carousel_gallery') as $item) { ?>
+												<div class = "carousel_item swiper-slide">
+													<div class = "carousel_thumbnail">
+														<?php echo wp_get_attachment_image($item, 'large'); ?>
+													</div>
+													<p class = "carousel_item_title"><?php echo get_the_title($item); ?></p>
+												</div>
+									<?php } ?> 
+								</div>
+								<div class="swiper-button-prev"></div>
+								<div class="swiper-button-next"></div>
+							</div>
+						</div>
+					<?php endif; ?>
+
+				<?php if ( get_row_layout()=='contact_form'): ?>
+					<?php if(get_sub_field('enable_contact_form')):?>
+						<div class ='contact_forms'>
+							<?php echo do_shortcode('[contact-form-7 id="182" title="Contact form 1"]'); ?>
+						</div>
+					<?php endif; ?>
 				<?php endif;?>
+
 		<?php endwhile; ?>
 		</div>
 	<?php endif; ?>
+
 	<?php
 		if( have_rows('our_campaigns_repeater') ): ?>
 			<div class="layouts">
@@ -175,7 +206,117 @@
 						</div>
 				<?php endwhile; ?>
 			</div>
-		<?php endif; ?>													
+		<?php endif; ?>	
+		
+		<?php
+/* Our Movement Child Pages*/
+			$child_pages = get_pages(
+				array(
+				'parent' => get_the_ID(),
+				'sort_column' => 'menu_order'
+				)
+			);
+			foreach ($child_pages as $child){ ?>
+				<div class = 'our_movement_title'>
+					<h2 class = 'title'> <?php echo $child->post_title;?> </h2>
+				</div>
+				<div class = 'our_movement_wysiwyg'>
+					<?php the_field('our_movement_wysiwyg', $child); ?>
+				</div>
+				<div class = 'our_movement_grandchild_list'>
+
+					<?php	$grandchild_pages = get_pages(
+							array(
+							'parent' => $child->ID,
+							'sort_column' => 'menu_order'
+							)
+						);
+						foreach($grandchild_pages as $grandchild){
+							$url = get_permalink($grandchild); ?>
+							<a href = <?php echo $url;?>><?php echo $grandchild->post_title;?></a>
+						<?php } ?>
+				</div> 
+			<?php } ?>
+
+			<?php
+				if( have_rows('our_movement_layouts') ): ?>
+					<div class="layouts">
+						<?php while( have_rows('our_movement_layouts') ): the_row(); ?>
+							<div class = "our_movements_container margins">
+							<?php $image = get_sub_field('our_movement_hc_image');?>
+								<?php $size = 'full';?>
+								<?php	if( $image ): ?>
+									<?php echo wp_get_attachment_image( $image, $size );?>
+									<?php endif;?>
+							<?php if(get_sub_field('our_movement_hc_wysiwyg')): ?>
+								<div class = 'our_movement_hc_wysiwyg'>
+									<?php apply_filters('the_content',the_sub_field('our_movement_hc_wysiwyg')); ?> 
+								</div>
+								<?php endif;?>
+								<?php if( have_rows('our_movement_hc_quote') ): ?>
+    								<?php while( have_rows('our_movement_hc_quote') ): the_row(); ?>
+										<?php $title = get_sub_field('our_movement_quote_title'); ?>
+										<?php $quote = get_sub_field('our_movement_quote_quote'); ?>
+										<?php $source = get_sub_field('our_movement_quote_name'); ?>
+										<?php $info = get_sub_field('our_movement_quote_info'); ?>
+								<div class= 'hc_quote_block quote'>
+									<?php if($title): ?>
+										<h5 class = 'hc_quote_title'> <?php echo ($title);?></h5>
+									<?php endif;?>
+									<?php if($quote): ?>
+										<p class = 'hc_quote italic'> <?php echo ($quote);?></p>
+									<?php endif;?>
+									<div class = 'hc_quote_source_info'>
+										<?php if($source): ?>
+											<p class = 'hc_quote_source'> <strong><?php echo ($source);?></strong></p>
+										<?php endif;?>
+										<?php if($info): ?>
+											<p class = 'hc_quote_info'> <?php echo ($info);?></p>
+										<?php endif;?>
+									</div>
+								<?php endwhile; ?>
+							<?php endif; ?>
+						<?php endwhile; ?>
+				<?php endif; ?>
+				<?php
+
+				if( have_rows('resources_layouts') ): ?>
+					<?php while( have_rows('resources_layouts') ): the_row(); ?>
+						<div class = "resources_container">
+							<div class = 'resources_wysiwyg'>
+								<?php apply_filters('the_content',the_sub_field('resources_wysiwyg')); ?> 
+							</div>
+							<?php if( have_rows('resource_repeater') ):
+								while( have_rows('resource_repeater') ) : the_row();?>
+								<details>
+									<summary>
+										<?php $title =  get_sub_field('resource_repeater_title');?>
+										<h2 class = 'resource_title title'><?php echo $title;?></h2>
+									</summary>
+										<div class = 'resource_description_wysiwyg margins'>
+											<?php apply_filters('the_content', the_sub_field('resource_repeater_wysiwyg')); ?>
+												<?php if(have_rows('resources_file_repeater')):?>
+													<div class = 'downloadable files'>
+														<?php while(have_rows('resources_file_repeater')) : the_row();?>
+															<?php 
+																$file = get_sub_field('resource_file');
+																$name = get_sub_field('resource_file_name');
+																	if( $file ): ?>
+																		<a href="<?php echo $file['url']; ?>"target="_blank" download><?php echo $name; ?></a>
+																	<?php endif; ?>
+														<?php endwhile; ?>
+																	</div>
+												<?php endif; ?>
+										</div>
+									</details>
+								<?php endwhile; ?>
+							<?php endif;?>
+						</div>
+					<?php endwhile; ?>
+				<?php endif; ?>
+
+
+
 
 	</div><!-- .entry-content -->
 	

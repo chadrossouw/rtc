@@ -1,69 +1,88 @@
 <?php
-/*Adding Custom Taxonomy*/
-add_action( 'init', 'create_book_taxonomies', 0 );
-
-function create_book_taxonomies() {
-	$labels = array(
-		'name'                       => _x( 'Writers', 'taxonomy general name', 'textdomain' ),
-		'singular_name'              => _x( 'Writer', 'taxonomy singular name', 'textdomain' ),
-		'search_items'               => __( 'Search Writers', 'textdomain' ),
-		'popular_items'              => __( 'Popular Writers', 'textdomain' ),
-		'all_items'                  => __( 'All Writers', 'textdomain' ),
-		'parent_item'                => null,
-		'parent_item_colon'          => null,
-		'edit_item'                  => __( 'Edit Writer', 'textdomain' ),
-		'update_item'                => __( 'Update Writer', 'textdomain' ),
-		'add_new_item'               => __( 'Add Writer', 'textdomain' ),
-		'new_item_name'              => __( 'New Writer Name', 'textdomain' ),
-		'separate_items_with_commas' => __( 'Separate writers with commas', 'textdomain' ),
-		'add_or_remove_items'        => __( 'Add or remove writers', 'textdomain' ),
-		'choose_from_most_used'      => __( 'Choose from the most used writers', 'textdomain' ),
-		'not_found'                  => __( 'No writers found.', 'textdomain' ),
-		'menu_name'                  => __( 'Writers', 'textdomain' ),
+// create new post type for Podcasts, Press Statements
+function we_create_init(){
+    $labels = array(
+		'name'               => __( 'Podcasts', 'we_create' ),
+		'singular_name'      => __( 'Podcast', 'we_create' ),
+		'menu_name'          => __( 'Podcasts', 'we_create' ),
+		'name_admin_bar'     => __( 'Podcasts', 'we_create' ),
+		'add_new'            => __( 'Add New', 'we_create' ),
+		'add_new_item'       => __( 'Add New Podcast', 'we_create' ),
+		'new_item'           => __( 'New Podcast', 'we_create' ),
+		'edit_item'          => __( 'Edit Podcast', 'we_create' ),
+		'view_item'          => __( 'View Podcast', 'we_create' ),
+		'all_items'          => __( 'All Podcasts', 'we_create' ),
+		'search_items'       => __( 'Search Podcasts', 'we_create' ),
+		'parent_item_colon'  => __( 'Parent Podcasts:', 'we_create' ),
+		'not_found'          => __( 'No Podcasts found.', 'we_create' ),
+		'not_found_in_trash' => __( 'No Podcasts found in Trash.', 'we_create' )
 	);
-
 	$args = array(
-		'hierarchical'          => false,
-		'labels'                => $labels,
-		'show_ui'               => true,
-		'show_admin_column'     => true,
-		'show_in_rest'			=> true,
-		'update_count_callback' => '_update_post_term_count',
-		'query_var'             => true,
-		'rewrite'               => array( 'slug' => 'writer' ),
+		'labels'             => $labels,
+        'description'        => __( 'A post type for BFT Podcasts.', 'we_create' ),
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+        'show_in_rest'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'podcasts'),
+		'capability_type'    => 'post',
+		'has_archive'        => false,
+		'hierarchical'       => false,
+		'menu_position'      => 4,
+        'menu_icon'           =>'dashicons-media-audio',
+        'supports'           => array( 'title','thumbnail' ),
+        
 	);
 
-	register_taxonomy( 'writer', array('post', 'product', 'tribe_events'), $args );
 	
-		$labels2 = array(
-		'name'                       => _x( 'Staff Member', 'taxonomy general name', 'textdomain' ),
-		'singular_name'              => _x( 'Staff Member', 'taxonomy singular name', 'textdomain' ),
-		'search_items'               => __( 'Search Staff Members', 'textdomain' ),
-		'popular_items'              => __( 'Popular Staff Members', 'textdomain' ),
-		'all_items'                  => __( 'All Staff Members', 'textdomain' ),
-		'parent_item'                => null,
-		'parent_item_colon'          => null,
-		'edit_item'                  => __( 'Edit Staff Member', 'textdomain' ),
-		'update_item'                => __( 'Update Staff Member', 'textdomain' ),
-		'add_new_item'               => __( 'Add Staff Member', 'textdomain' ),
-		'new_item_name'              => __( 'New Staff Member Name', 'textdomain' ),
-		'separate_items_with_commas' => __( 'Separate Staff Members with commas', 'textdomain' ),
-		'add_or_remove_items'        => __( 'Add or remove Staff Member', 'textdomain' ),
-		'choose_from_most_used'      => __( 'Choose from the most used Staff Members', 'textdomain' ),
-		'not_found'                  => __( 'No Staff Members found.', 'textdomain' ),
-		'menu_name'                  => __( 'Staff Member', 'textdomain' ),
+	register_post_type( 'podcast', $args );
+    
+	$labels = array(
+		'name'               => __( 'Statements', 'we_create' ),
+		'singular_name'      => __( 'Statement', 'we_create' ),
+		'menu_name'          => __( 'Statements', 'we_create' ),
+		'name_admin_bar'     => __( 'Statements', 'we_create' ),
+		'add_new'            => __( 'Add New', 'we_create' ),
+		'add_new_item'       => __( 'Add New Statement', 'we_create' ),
+		'new_item'           => __( 'New Statement', 'we_create' ),
+		'edit_item'          => __( 'Edit Statement', 'we_create' ),
+		'view_item'          => __( 'View Statement', 'we_create' ),
+		'all_items'          => __( 'All Statements', 'we_create' ),
+		'search_items'       => __( 'Search Statements', 'we_create' ),
+		'parent_item_colon'  => __( 'Parent Statements:', 'we_create' ),
+		'not_found'          => __( 'No Statements found.', 'we_create' ),
+		'not_found_in_trash' => __( 'No Statements found in Trash.', 'we_create' )
+	);
+	$args = array(
+		'labels'             => $labels,
+        'description'        => __( 'A post type for BFT Statements.', 'we_create' ),
+		'public'             => true,
+		'publicly_queryable' => true,
+		'show_ui'            => true,
+		'show_in_menu'       => true,
+        'show_in_rest'       => true,
+		'query_var'          => true,
+		'rewrite'            => array( 'slug' => 'statements','with_front' => false ),
+		'capability_type'    => 'post',
+		'has_archive'        => false,
+		'hierarchical'       => false,
+		'menu_position'      => 4,
+        'menu_icon'           =>'dashicons-media-document',
+        'supports'           => array( 'title','thumbnail' ),
+        
 	);
 
-	$args2 = array(
-		'hierarchical'          => false,
-		'labels'                => $labels2,
-		'show_ui'               => true,
-		'show_admin_column'     => true,
-		'show_in_rest'			=> true,
-		'update_count_callback' => '_update_post_term_count',
-		'query_var'             => true,
-		'rewrite'               => array( 'slug' => 'staff-member' ),
-	);
+	
+	register_post_type( 'statement', $args );
 
-	register_taxonomy( 'staff-member', 'post', $args2 );
-}
+	
+	
+
+
+    }
+    
+    add_action( 'init', 'we_create_init' );
+
+	
