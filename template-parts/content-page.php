@@ -89,8 +89,9 @@
 								<h2 class = "social_media_title title"><?php echo get_sub_field('social_media_title'); ?></h2>
 							<?php endif; ?>
 							<div class="embed-container">
-								<?php var_dump(get_sub_field('social_media_feed_test'));?>
-    							<?php get_sub_field('social_media_feed_test'); ?>
+								<?php $sm_platform = get_field('social_media', 'option')["$feed"];?>
+								<?php var_dump($sm_platform);?>
+							
 							</div>
 						</div>
 
@@ -145,6 +146,18 @@
 						</div>
 					<?php endif; ?>
 				<?php endif;?>
+
+				<?php if ( get_row_layout()=='youtube_feed'): ?>
+					<?php if(get_sub_field('enable_youtube_feed')):?>
+						<div class ='youtube_feed_embed'>
+							<?php if(get_sub_field('youtube_feed_title')):?>
+								<h2 class = 'youtube_title title'><?php echo get_sub_field('youtube_feed_title');?></h2>
+								<?php endif; ?>
+							<?php echo do_shortcode('[youtube-feed feed=1]'); ?>
+						</div>
+					<?php endif; ?>
+				<?php endif;?>
+
 
 		<?php endwhile; ?>
 		</div>

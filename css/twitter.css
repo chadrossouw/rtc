@@ -1,0 +1,115 @@
+.timeline-TweetList{
+    display:flex;
+    justify-content: space-between;
+    flex-wrap:wrap;
+}
+
+.timeline-Widget {
+    min-width: 100%;
+    max-width: unset;
+}
+
+.timeline-Viewport {
+    min-width: 100%;
+    max-width: 100%;
+}
+
+li.timeline-TweetList-tweet.customisable-border {
+    flex-basis: 100%;
+}
+
+.timeline-Widget .timeline-Viewport .timeline-TweetList .timeline-TweetList-tweet a {
+    color: #762f8e;
+}
+
+.timeline-Widget .timeline-Viewport .timeline-TweetList .timeline-TweetList-tweet p{
+    font-size:1.2rem;
+    line-height:130%;
+    font-family:'Cabin',sans-serif;
+    margin-left:0;
+}
+
+.Icon.Icon--retweetBadge {
+    filter: saturate(0);
+}
+
+.timeline-TweetList .timeline-Tweet-media {
+    max-width: 280px;
+}
+@media screen and (min-width:390px) {
+    .timeline-TweetList .timeline-Tweet-media {
+        max-width: 390px;
+    }
+}
+.timeline-TweetList  a.TweetAuthor-avatar {
+    display: none;
+}
+
+.timeline-TweetList .timeline-Tweet-retweetCredit {
+    margin-left: 0;
+}
+
+.timeline-TweetList .timeline-Tweet-author {
+    padding-left: 0;
+}
+
+.timeline-TweetList .timeline-Tweet-media {
+    margin-left: 0;
+}
+
+.timeline-TweetList .timeline-TweetList ul.timeline-Tweet-actions {
+    margin-left: 0;
+}
+
+.timeline-TweetList .timeline-Tweet-inReplyTo {
+    padding-left: 0;
+}
+
+@media screen and (min-width:700px) {
+    .SandboxRoot.env-bp-660 .timeline-TweetList .timeline-Tweet-author, 
+    .SandboxRoot.env-bp-820 .timeline-TweetList .timeline-Tweet-author,
+    .SandboxRoot.env-bp-660 .timeline-TweetList .timeline-Tweet-inReplyTo{
+        padding-left:0;
+    }
+
+    .SandboxRoot.env-bp-660 .timeline-TweetList .timeline-Tweet-actions, 
+    .SandboxRoot.env-bp-660 .timeline-TweetList .timeline-Tweet-media, 
+    .SandboxRoot.env-bp-660 .timeline-TweetList .timeline-Tweet-text, 
+    .SandboxRoot.env-bp-820 .timeline-TweetList .timeline-Tweet-actions, 
+    .SandboxRoot.env-bp-820 .timeline-TweetList .timeline-Tweet-media, 
+    .SandboxRoot.env-bp-820 .timeline-TweetList .timeline-Tweet-text{
+        margin-left:0;
+    }
+
+    li.timeline-TweetList-tweet.customisable-border {
+        flex-basis: 48%;
+        width: 48%;
+    }
+    
+}
+@media screen and (min-width:1000px){
+    li.timeline-TweetList-tweet.customisable-border {
+        flex-basis: 32%;
+        width: 32%;
+    }
+
+    .SandboxRoot.env-bp-970 .timeline-TweetList  .timeline-Tweet-author {
+        padding-left: 0;
+    }
+
+    .SandboxRoot.env-bp-970 .timeline-TweetList .timeline-Tweet-actions,
+    .SandboxRoot.env-bp-970 .timeline-TweetList .timeline-Tweet-media, 
+    .SandboxRoot.env-bp-970 .timeline-TweetList .timeline-Tweet-text {
+        margin-left: 0;
+    }
+
+    .SandboxRoot.env-bp-970 .timeline-TweetList .timeline-Tweet-inReplyTo {
+        padding-left: 0;
+    }
+
+    li.timeline-TweetList-tweet::after {content: '';width: 1px;height: 100%;position: absolute;background-color: #889a9c;top: 0;right: -10px;}
+
+    li.timeline-TweetList-tweet {
+        position: relative;
+    }
+}
