@@ -9,83 +9,54 @@
 
 get_header();
 $q = get_queried_object();
-$add_title='';
-if(is_tax('staff-member')){
-	$add_title = '<span class="bl_h1_smaller">Recommended by</span><br/>';
-}
 ?>
 
 <main id="primary" class="site-main">
-	<h1 class="archive-title margins"><?php echo $add_title; echo is_category() || is_tax() ? $q->name : $q->labels->name; ?></h1>
-	<div class="margins bl_book_list"><?php
+	<h1 class="archive-title margins"><?php echo is_category() || is_tax() ? $q->name : $q->labels->name; ?></h1>
+	<div class="margins archive_items"><?php
 	// Check if there are any posts to display
 	if ( have_posts() ) : 
 	// The Loop
-	$count = 0;
-	while ( have_posts() ) : the_post(); $count++; ?>
+	while ( have_posts() ) : the_post(); ?>
 	<?php $post_id = get_the_ID(); ?>
-		<div class="bl_book_container">
-			<?php if(get_post_type()!='product'){ ?>
-				<a class="post-image-link" href="<?php echo get_permalink($post_id); ?>">
-						<?php if (  (function_exists('has_post_thumbnail')) && (has_post_thumbnail())  ) {
-						echo get_the_post_thumbnail($post_id, 'custom-thumb-3');
-						}
-						elseif(in_category('podcasts')){
-						echo "<img width='300' src='/wp-content/uploads/dynamik-gen/theme/images/Podcastdefault.jpg'>";
-						}
-					?></a>
-						<div class="bl_book_category">
-							Blog Post:
-							<?php if(the_category($post_id)){?>
-								<h5 class="bl_book_cats"><?php the_category(',','',$post_id); ?></h5>
-							<?php } 
-							?>
-						</div>       
-						<h3 class="bl_book_title" itemprop="headline">
-							<a href="<?php echo get_permalink($post_id); ?>" title="<?php echo get_the_title(); ?>" rel="bookmark"><?php echo get_the_title(); ?></a>
-						</h2> 
-						<?php if( get_the_term_list( $post_id, 'writer' ) ){?>
-							<h4 class="bl_book_author"><?php echo get_the_term_list( $post_id, 'writer','',', ' ); ?></h4>
-							<?php 
-							}
-							$staffmember=get_the_term_list($post_id,'staff-member','',' & ' );
-							if ($staffmember){ ?>
-								<div class="bl_tiny_text">Recommended by <?php echo $staffmember; ?></div>
-								<?php
-								}
-		 }else{ ?>
-			<a href="<?php the_permalink(); ?>" class = "bl_book_cat">
-			<?php  echo get_the_post_thumbnail(get_the_ID(), 'custom-thumb-3'); ?>
+		<div class="rtc_archive_container">
+		<?php if(get_post_type()!='podcast'): ?>	
+			<a class="archive_item_title statement" href="<?php echo get_permalink($post_id); ?>">
+			<?php echo get_the_title(); ?>
 			</a>
-			<div class = "bl_book_category">
+			<?php if(get_field('press_statement_description', $post_id)):?>
+				<div class = 'statement_archive_description'>
+					<?php echo get_field('press_statement_description', $post_id);?>
+				</div>
+			<?php endif; ?>
+			<a class ='download' href= "<?php echo (get_field('press_statement_file', $post_id));?>" download> Download <?php echo (get_the_title($post_id));?></a>
+			<div class = 'statement_archive_date'>
+				Date: <?php echo get_field('date_of_statement', $post_id);?>
 			</div>
-			<h3 class = "bl_book_title">
-			<a href="<?php the_permalink(); ?>"><?php the_title(); ?>
-			</a>
-			</h3>
-			<h4 class = "bl_book_author">
-			<?php echo get_the_term_list(get_the_ID(),'writer', '', ',', ''); ?>
-			</h4>
-			<div class= "bl_book_price">
-			<?php
-			$product = wc_get_product();
-			echo $product->get_price_html();
-			if ( !$product->is_in_stock() ){
-				echo '<p class="stock out-of-stock">Out of Stock</p>';
-			}
-			else {
-				$checkout_url = wc_get_checkout_url(); ?>
-				<a href="<?php echo $checkout_url; ?>" value="<?php echo get_the_ID(); ?>" class="ajax_add_to_cart add_to_cart_button" data-product_id="<?php echo get_the_ID(); ?>"> Add to Cart </a>
-				<?php echo do_shortcode('[yith_wcwl_add_to_wishlist]'); ?>
-			<?php } ?>
-			</div>
-		<?php }?>
-	</div>
+		<?php elseif(get_post_type()!='statement'): ?>
+			<a class="archive_item_title podcast" href="<?php echo get_permalink($post_id); ?>">
+				<?php echo get_the_title(); ?>
+				</a>
+				<div class = 'podcast_archive_thumbnail'> 
+					<?php echo wp_get_attachment_image(get_field('podcast_thumbnail',$post_id), 'medium');?> 
+				</div>
+				<?php if(get_field('podcast_description', $post_id)):?>
+					<div class = 'podcast_archive_description'>
+						<?php echo get_field('podcast_description', $post_id);?>
+					</div>
+				<?php endif; ?>
+				<div class = 'podcast_archive_player'>
+				<audio controls><source src= "<?php echo (get_field('podcast_file', $post_id));?>" type="audio/mpeg"></audio>
+				</div>
+				<div class = 'podcast_archive_date'>
+					Date: <?php echo get_field('date_of_podcast', $post_id);?>
+				</div>
+
+		<?php endif;?>
+		</div>
 	<?php
 	endwhile; ?>
-	<div class="bl_book_container"></div>
-	<div class="bl_book_container"></div>
-	<div class="bl_book_container"></div>
+
 	<?php 
 	$big = 999999999;
 	global $wp_query;

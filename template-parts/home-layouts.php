@@ -70,12 +70,12 @@
 								</div>
 							</div>
 
-							<?php elseif ( get_row_layout()=='social_media_block'): ?>
+					<?php elseif ( get_row_layout()=='social_media_block'): ?>
 						<?php $feed = (get_sub_field('social_media_feed'));?>
-						<div class = "social_media_feed margins <?php echo $feed;?>">
-							<?php if(get_sub_field('social_media_title')): ?>
-								<h2 class = "social_media_title title"><?php echo get_sub_field('social_media_title'); ?></h2>
-							<?php endif; ?>
+							<div class = "social_media_feed margins <?php echo $feed;?>">
+								<?php if(get_sub_field('social_media_title')): ?>
+									<h2 class = "social_media_title title"><?php echo get_sub_field('social_media_title'); ?></h2>
+								<?php endif; ?>
 							<div class="embed-container">
 								<?php if ($feed =='twitter'):?>
 									<div class="rtc_container--twitter margins" id="twitter">
@@ -86,17 +86,7 @@
 
 								<?php elseif ($feed =='instagram'):?>
 									<div class="rtc_container--instagram margins" id="instagram">
-												<?php
-													rtc_twitter();
-												?>
-									</div>
-
-
-								<?php elseif ($feed =='facebook'):?>
-									<div class="rtc_container--facebook margins" id="facebook">
-												<?php
-													rtc_twitter();
-												?>
+												<?php echo do_shortcode('[instagram-feed feed=1]'); ?>
 									</div>
 								<?php endif;?>
 							</div>

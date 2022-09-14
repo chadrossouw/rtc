@@ -9,9 +9,17 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('margins'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('marginst'); ?>>
+<?php if(!is_front_page()):?>
 	<header class="entry-header">
-		<?php the_title( '<h1 class="entry-title">', '</h1>' ); ?>
+		<?php 
+		$header = get_template_directory() . '/assets/headers/'. basename(get_permalink());
+		if(file_exists($header)):
+			echo file_get_contents($header);
+		else:
+			 the_title( '<h1 class="entry-title">', '</h1>' );
+		endif;?>
+
 	</header><!-- .entry-header -->
 	<?php if(has_post_thumbnail()){ ?>
 		<div class="bl_content_left">
@@ -20,6 +28,7 @@
 			</div>
 		</div>
 	<?php } ?>
+<?php endif;?>
 
 	<div class="entry-content">
 	<?php
@@ -41,7 +50,7 @@
 												<div class = "hero_carousel_thumbnail">
 													<?php echo wp_get_attachment_image($item, 'large'); ?>
 												</div>
-												<p class = "hero_carousel_title"><?php echo get_the_title($item); ?></p>
+												<?php //<p class = "hero_carousel_title"><?php echo get_the_title($item); </p>?>
 											</div>
 								<?php } ?> 
 							</div>
@@ -82,16 +91,25 @@
 								</div>
 							</div>
 
-					<?php elseif ( get_row_layout()=='social_media_block'): ?>
+							<?php elseif ( get_row_layout()=='social_media_block'): ?>
 						<?php $feed = (get_sub_field('social_media_feed'));?>
-						<div class = "social_media_feed margins <?php echo $feed;?>">
-							<?php if(get_sub_field('social_media_title')): ?>
-								<h2 class = "social_media_title title"><?php echo get_sub_field('social_media_title'); ?></h2>
-							<?php endif; ?>
+							<div class = "social_media_feed margins <?php echo $feed;?>">
+								<?php if(get_sub_field('social_media_title')): ?>
+									<h2 class = "social_media_title title"><?php echo get_sub_field('social_media_title'); ?></h2>
+								<?php endif; ?>
 							<div class="embed-container">
-								<?php $sm_platform = get_field('social_media', 'option')["$feed"];?>
-								<?php var_dump($sm_platform);?>
-							
+								<?php if ($feed =='twitter'):?>
+									<div class="rtc_container--twitter margins" id="twitter">
+									<?php
+										rtc_twitter();
+									?>
+									</div>
+
+								<?php elseif ($feed =='instagram'):?>
+									<div class="rtc_container--instagram margins" id="instagram">
+												<?php echo do_shortcode('[instagram-feed feed=1]'); ?>
+									</div>
+								<?php endif;?>
 							</div>
 						</div>
 
@@ -156,6 +174,31 @@
 							<?php echo do_shortcode('[youtube-feed feed=1]'); ?>
 						</div>
 					<?php endif; ?>
+				<?php endif;?>
+
+				<?php if (get_row_layout()== 'recent_block'): ?>
+					<?php $type = get_sub_field('content_type');?>
+					<?php  $count = get_sub_field('recent_block_count');?>
+						<div class = 'recent_block <?php echo $type;?>'>
+							<?php if(get_sub_field('recent_block_title')):?>
+								<h2 class = 'recent_block_title title'>
+									<?php echo (get_sub_field('recent_block_title'));?>
+								</h2>
+								<?php endif;?>
+							<?php if(get_sub_field('recent_block_wysiwyg')):?>
+								<div class = 'recent_block_description'>
+									<?php apply_filters('the_content',the_sub_field('recent_block_wysiwyg')); ?>
+								</div>
+							<?php endif; ?>
+							<div class = 'recent_items <?php echo $count;?>'>
+								<?php get_recents($type, $count);?>
+							</div>
+							<?php if($type == 'statement'):?>
+								<a class = 'archive_button <?php echo $type;?> button' href = "/statements">View Press Statement Archive</a>
+							<?php elseif($type == 'podcast'):?>
+								<a class = 'archive_button <?php echo $type;?> button' href = "/podcasts">View Podcast Archive</a>
+							<?php endif; ?>
+						</div>
 				<?php endif;?>
 
 
