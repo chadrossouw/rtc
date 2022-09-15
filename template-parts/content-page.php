@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('marginst'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class('margins'); ?>>
 <?php if(!is_front_page()):?>
 	<header class="entry-header">
 		<?php 
@@ -62,9 +62,14 @@
 						<?php if(get_sub_field('text_block_column_count') == 'one'){ 
 							$column = 'one_column';
 						} else $column = 'two_column';?>
-						<div class = "text_block_container margins <?php echo $column; ?>">
+						<div class = "text_block_container <?php echo $column; ?>">
 							<?php if(get_sub_field('text_block_title')): ?>
-								<h2 class = "text_block_title title"><?php echo get_sub_field('text_block_title'); ?></h2>
+								<div class = "text_block_title_container">
+									<h2 class = "text_block_title title"><?php echo get_sub_field('text_block_title'); ?></h2>
+										<?php if(get_sub_field('text_block_second_line')): ?>
+											<h2 class = "text_block_title title"><?php echo get_sub_field('text_block_second_line'); ?></h2>
+										<?php endif; ?>
+								</div>
 							<?php endif; ?>
 							<div class = "text_block_wysiwyg">
 								<?php apply_filters('the_content',the_sub_field('text_block_wysiwyg')); ?> 
@@ -73,13 +78,15 @@
 
 					<?php elseif ( get_row_layout()=='donate_block'): ?>
 							<div class = "donate_block_container margins">
-								<?php if(get_sub_field('donate_block_heading_text')): ?>
-									<h3 class = "donate_heading title black"><?php echo get_sub_field('donate_block_heading_text'); ?></h3>
-								<?php endif; ?>
-								<div class = "donate_button button">
-									<a href = "<?php echo get_sub_field('donate_block_button_url');?>">
-										<?php echo get_sub_field('donate_block_button_text');?>
-									</a>
+								<div class = 'donante_block_LHS'>
+									<?php if(get_sub_field('donate_block_heading_text')): ?>
+										<h3 class = "donate_heading title black"><?php echo get_sub_field('donate_block_heading_text'); ?></h3>
+									<?php endif; ?>
+									<div class = "donate_button button">
+										<a href = "<?php echo get_sub_field('donate_block_button_url');?>">
+											<?php echo get_sub_field('donate_block_button_text');?>
+										</a>
+									</div>
 								</div>
 								<div class = 'donate_block_follow'>
 									<h3 class = 'donate_block_follow_heading title red'>
@@ -100,9 +107,7 @@
 							<div class="embed-container">
 								<?php if ($feed =='twitter'):?>
 									<div class="rtc_container--twitter margins" id="twitter">
-									<?php
-										rtc_twitter();
-									?>
+										<?php echo do_shortcode('[custom-twitter-feeds feed=1]');?>
 									</div>
 
 								<?php elseif ($feed =='instagram'):?>
@@ -124,9 +129,14 @@
 							<div class = 'partners_logos'>
 								<?php if( have_rows('partner_logo_repeater')):?>
 									<?php while( have_rows('partner_logo_repeater')): the_row();?>
+										<?php $logo = wp_get_attachment_image(get_sub_field('partner_logo'),'small'); ?>
 										<a href="<?php echo get_sub_field('partner_url'); ?>" target="_blank">
 											<span class="screen-reader-text"><?php echo get_sub_field('partner_name'); ?></span>
-											<?php echo wp_get_attachment_image(get_sub_field('partner_logo'),'medium'); ?>
+											<?php if ($logo):
+												 echo wp_get_attachment_image(get_sub_field('partner_logo'),'small');?>
+											<?php else:?>
+												<h4 class= 'partner_no_logo'> <?php echo (get_sub_field('partner_name'));?></h4>
+											<?php endif; ?>						 
 										</a>
 									<?php endwhile;
 								endif; ?>	

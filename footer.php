@@ -12,7 +12,7 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-	<div class="bl_footer" itemscope itemtype="http://schema.org/LocalBusiness">
+	<div class="bl_footer margins" itemscope itemtype="http://schema.org/LocalBusiness">
 		<div class="rtc_logo">
 			<a href="/"><img src="/wp-content/themes/reclaimthecity/assets/rtc_logo.svg"></a>
 		</div>
