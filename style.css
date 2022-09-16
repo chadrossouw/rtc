@@ -1097,6 +1097,12 @@ h1, h2 {
 	padding-right: 1rem;
 }
 
+h3 {
+	color: #B30100;
+	text-transform: uppercase;
+	font-size: 32px;
+}
+
 .red {
 	color: #B30100;
 }
@@ -1412,6 +1418,11 @@ a:hover {
 	margin: 10px 15%;
 }
 
+header.entry-header svg {
+	max-height: 150px;
+	width: auto;
+}
+
 /*Sections*/
 .home .site-inner {
 	padding-top: 0px;
@@ -1502,6 +1513,10 @@ section.bl_home_section:nth-of-type(1)::before {
 	width: 100vw;
 	max-height: 32rem;
 	object-fit: cover;
+}
+
+.divider {
+	border-bottom: #B30100 2px solid;
 }
 
 /*Carousel*/
@@ -1600,7 +1615,6 @@ section.bl_home_section:nth-of-type(1)::before {
 
 /*RTC Text Block*/
 .text_block_container {
-	border-bottom: #B30100 2px solid;
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 }
@@ -1622,7 +1636,7 @@ h2.text_block_title.title {
 	.text_block_container.margins h2 {
 		margin-top: 0;
 		margin-bottom: 1.5rem;
-		display: block;
+		display: inline-block;
 	}
 	.text_block_wysiwyg {
 		padding-left: 1rem;
@@ -1631,7 +1645,6 @@ h2.text_block_title.title {
 
 /*RTC Donate Block*/
 .donate_block_container {
-	border-bottom: #B30100 2px solid;
 	padding-top: 1rem;
 	padding-bottom: 1rem;
 }
@@ -1710,10 +1723,6 @@ h3.donate_block_follow_heading {
 }
 
 /*RTC Partners Block*/
-.partners_block.margins {
-	border-top: #B30100 2px solid;
-}
-
 .partners_logos {
 	display: flex;
 	flex-wrap: wrap;
@@ -1793,6 +1802,64 @@ a.archive_button.statement.button {
 	background-size: contain;
 	background-repeat: no-repeat;
 	z-index: 99999999;
+}
+
+/* RTC Our Movement Page */
+.our_movement_grandchild_list a {
+	background: #B30100;
+	color: #FFFFFF;
+	font-family: 'Londrina Solid';
+	font-size: 2rem;
+	padding-left: 1rem;
+	padding-right: 1rem;
+}
+
+.our_movement_grandchild_list a:visited {
+	color: #FFFFFF;
+}
+
+.our_movement_grandchild_list {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+}
+
+.our_movement_grandchild_list {
+	margin-bottom: 2rem;
+}
+
+/*RTC Our Houses Grandchild Pages*/
+.hc_quote_block.quote .hc_quote_title {
+	color: #B30100;
+	font-family: 'Lato';
+	font-size: 1.5rem;
+	font-style: italic;
+}
+
+.hc_quote_block.quote .hc_quote.italic {
+	color: #637574;
+	font-family: 'Lato';
+	font-size: 1.5rem;
+	font-style: italic;
+	font-weight: 400;
+}
+
+.hc_quote_block.quote .hc_quote_source_info {
+	color: #637574;
+	font-family: 'Lato';
+	font-size: 1.5rem;
+	font-weight: 400;
+	display: flex;
+	gap: 0.5rem;
+	justify-content: center;
+}
+
+.hc_quote_block.quote {
+	background: rgba(0, 0, 0, 0.1);
+	padding: 0.5rem;
+	max-width: 35vw;
+	text-align: center;
+	margin: 0 auto;
 }
 
 /*Home Podcasts and Events*/

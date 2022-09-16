@@ -13,10 +13,11 @@
 <?php if(!is_front_page()):?>
 	<header class="entry-header">
 		<?php 
-		$header = get_template_directory() . '/assets/headers/'. basename(get_permalink());
+		$header = get_template_directory() . '/assets/headers/'. basename(get_permalink()).'.svg';
 		if(file_exists($header)):
-			echo file_get_contents($header);
-		else:
+			echo file_get_contents($header);?>
+			<h1 class = 'screen-reader-text'><?php echo get_the_title();?></h1>
+	<?php	 else:
 			 the_title( '<h1 class="entry-title">', '</h1>' );
 		endif;?>
 
@@ -62,7 +63,7 @@
 						<?php if(get_sub_field('text_block_column_count') == 'one'){ 
 							$column = 'one_column';
 						} else $column = 'two_column';?>
-						<div class = "text_block_container <?php echo $column; ?>">
+						<div class = "text_block_container margins <?php echo $column; ?>">
 							<?php if(get_sub_field('text_block_title')): ?>
 								<div class = "text_block_title_container">
 									<h2 class = "text_block_title title"><?php echo get_sub_field('text_block_title'); ?></h2>
@@ -185,6 +186,12 @@
 						</div>
 					<?php endif; ?>
 				<?php endif;?>
+
+				<?php if ( get_row_layout()=='red_divider'): ?>
+					<?php if(get_sub_field('add_divider')): ?>
+						<div class= 'divider margins'></div>
+					<?php endif; ?>
+				<?php endif; ?>
 
 				<?php if (get_row_layout()== 'recent_block'): ?>
 					<?php $type = get_sub_field('content_type');?>
@@ -325,10 +332,11 @@
 										<?php $quote = get_sub_field('our_movement_quote_quote'); ?>
 										<?php $source = get_sub_field('our_movement_quote_name'); ?>
 										<?php $info = get_sub_field('our_movement_quote_info'); ?>
-								<div class= 'hc_quote_block quote'>
+								
 									<?php if($title): ?>
+										<div class= 'hc_quote_block quote'>
 										<h5 class = 'hc_quote_title'> <?php echo ($title);?></h5>
-									<?php endif;?>
+									
 									<?php if($quote): ?>
 										<p class = 'hc_quote italic'> <?php echo ($quote);?></p>
 									<?php endif;?>
@@ -340,6 +348,7 @@
 											<p class = 'hc_quote_info'> <?php echo ($info);?></p>
 										<?php endif;?>
 									</div>
+									<?php endif;?>
 								<?php endwhile; ?>
 							<?php endif; ?>
 						<?php endwhile; ?>
