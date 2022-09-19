@@ -149,7 +149,7 @@ button,
 input[type="button"],
 input[type="reset"],
 input[type="submit"] {
-	background-color: $color_deep_green;
+	background-color: $color_black;
 	color: white;
 	padding: 1rem 2rem;
 	cursor:pointer;
@@ -179,4 +179,10 @@ input[type="submit"] {
 	padding-bottom: 2rem;
 	display: block;
 	text-align: center;
+}
+
+div#page {
+    min-height: 100vh;
+    display: grid;
+    grid-template-rows: auto 1fr auto;
 }

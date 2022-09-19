@@ -79,15 +79,30 @@
 
 	
 
-	/*Details*/
-	class Accordion {
+		  
+
+
+	  let couponToggle = document.querySelector('.woocommerce-form-coupon-toggle');
+	  if(couponToggle){
+		couponToggle.setAttribute('tabindex',0);
+		couponToggle.addEventListener('click',e=>{
+			if(e.currentTarget.nextElementSibling.style.display=='none'){
+				e.currentTarget.nextElementSibling.style.display='block';
+			}
+			else{
+				e.currentTarget.nextElementSibling.style.display='none';
+			}
+		})
+	  }
+
+	  class Accordion {
 		constructor(el) {
 		  // Store the <details> element
 		  this.el = el;
 		  // Store the <summary> element
 		  this.summary = el.querySelector('summary');
 		  // Store the <div class="content"> element
-		  this.content = el.querySelector('.details-text');
+		  this.content = el.querySelector('.details_content');
 	  
 		  // Store the animation object (so we can cancel it if needed)
 		  this.animation = null;
@@ -133,7 +148,7 @@
 			// Set the keyframes from the startHeight to endHeight
 			height: [startHeight, endHeight]
 		  }, {
-			duration: 400,
+			duration: 600,
 			easing: 'ease-out'
 		  });
 		  
@@ -193,20 +208,6 @@
 		}
 	  }
 	  
-	  /* document.querySelectorAll('details').forEach((el) => {
+	  document.querySelectorAll('details').forEach((el) => {
 		new Accordion(el);
-	  }); */
-
-
-	  let couponToggle = document.querySelector('.woocommerce-form-coupon-toggle');
-	  if(couponToggle){
-		couponToggle.setAttribute('tabindex',0);
-		couponToggle.addEventListener('click',e=>{
-			if(e.currentTarget.nextElementSibling.style.display=='none'){
-				e.currentTarget.nextElementSibling.style.display='block';
-			}
-			else{
-				e.currentTarget.nextElementSibling.style.display='none';
-			}
-		})
-	  }
+	  });

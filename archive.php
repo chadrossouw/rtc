@@ -19,38 +19,43 @@ $q = get_queried_object();
 	// The Loop
 	while ( have_posts() ) : the_post(); ?>
 	<?php $post_id = get_the_ID(); ?>
-		<div class="rtc_archive_container">
+		<div class="rtc_archive_container margins">
 		<?php if(get_post_type()!='podcast'): ?>	
 			<a class="archive_item_title statement" href="<?php echo get_permalink($post_id); ?>">
 			<?php echo get_the_title(); ?>
 			</a>
+			<div class = 'statement_archive_date'>
+				Date: <?php echo get_field('date_of_statement', $post_id);?>
+			</div>
 			<?php if(get_field('press_statement_description', $post_id)):?>
 				<div class = 'statement_archive_description'>
 					<?php echo get_field('press_statement_description', $post_id);?>
 				</div>
 			<?php endif; ?>
 			<a class ='download' href= "<?php echo (get_field('press_statement_file', $post_id));?>" download> Download <?php echo (get_the_title($post_id));?></a>
-			<div class = 'statement_archive_date'>
-				Date: <?php echo get_field('date_of_statement', $post_id);?>
-			</div>
+		
 		<?php elseif(get_post_type()!='statement'): ?>
-			<a class="archive_item_title podcast" href="<?php echo get_permalink($post_id); ?>">
-				<?php echo get_the_title(); ?>
-				</a>
-				<div class = 'podcast_archive_thumbnail'> 
-					<?php echo wp_get_attachment_image(get_field('podcast_thumbnail',$post_id), 'medium');?> 
+			<div class = 'podcast_archive_grid'>
+				<div class="podcast_archive_title_group">
+					<a class="archive_item_title podcast" href="<?php echo get_permalink($post_id); ?>">
+						<?php echo get_the_title(); ?>
+						</a>
+						<div class = 'podcast_archive_date'>
+							Date: <?php echo get_field('date_of_podcast', $post_id);?>
+						</div>
 				</div>
-				<?php if(get_field('podcast_description', $post_id)):?>
-					<div class = 'podcast_archive_description'>
-						<?php echo get_field('podcast_description', $post_id);?>
+					<div class = 'podcast_archive_thumbnail'> 
+						<?php echo wp_get_attachment_image(get_field('podcast_thumbnail',$post_id), 'medium');?> 
 					</div>
-				<?php endif; ?>
-				<div class = 'podcast_archive_player'>
-				<audio controls><source src= "<?php echo (get_field('podcast_file', $post_id));?>" type="audio/mpeg"></audio>
-				</div>
-				<div class = 'podcast_archive_date'>
-					Date: <?php echo get_field('date_of_podcast', $post_id);?>
-				</div>
+					<?php if(get_field('podcast_description', $post_id)):?>
+						<div class = 'podcast_archive_description'>
+							<?php echo get_field('podcast_description', $post_id);?>
+						</div>
+					<?php endif; ?>
+					<div class = 'podcast_archive_player'>
+					<audio controls><source src= "<?php echo (get_field('podcast_file', $post_id));?>" type="audio/mpeg"></audio>
+					</div>
+			</div>
 
 		<?php endif;?>
 		</div>

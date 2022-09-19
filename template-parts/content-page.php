@@ -147,7 +147,7 @@
 					<?php endif;?>
 
 					<?php if ( get_row_layout()=='image_carousel'): ?>
-						<div class = "carousel_container">
+						<div class = "carousel_container margins">
 							<?php if(get_sub_field('carousel_title')): ?>
 								<h2 class = "carousel_title title"><?php echo get_sub_field('carousel_title'); ?></h2>
 							<?php endif; ?>
@@ -178,11 +178,15 @@
 
 				<?php if ( get_row_layout()=='youtube_feed'): ?>
 					<?php if(get_sub_field('enable_youtube_feed')):?>
-						<div class ='youtube_feed_embed'>
+						<div class ='youtube_feed_embed margins'>
 							<?php if(get_sub_field('youtube_feed_title')):?>
 								<h2 class = 'youtube_title title'><?php echo get_sub_field('youtube_feed_title');?></h2>
 								<?php endif; ?>
 							<?php echo do_shortcode('[youtube-feed feed=1]'); ?>
+							<?php $youtube_url = (get_field('social_media', 'option')['youtube']);?>
+								<?php if($youtube_url):?>
+									<a class = 'youtube_button button' href = "<?php echo $youtube_url;?>">View Video Archive</a>
+									<?php endif;?>
 						</div>
 					<?php endif; ?>
 				<?php endif;?>
@@ -193,10 +197,30 @@
 					<?php endif; ?>
 				<?php endif; ?>
 
+				<?php if ( get_row_layout()=='snapscan_donate_block'): ?>
+					<?php if(get_sub_field('add_snapscan_donate_block')): ?>
+						<?php if(get_field('snapscan_url', 'option')):?>
+							<?php $snapscan_url = get_field('snapscan_url', 'option');?>
+							<div class="snapscan_container margins">
+								<h2 class = "snapscan_title title">Donate with snapscan</h2>
+									<div class = "snapscan_align">
+										<img class="alignnone" src="/wp-content/themes/reclaimthecity/assets/snapscan.png" width="175" /><a href="<?php echo $snapscan_url;?>">
+										<img src="<?php echo $snapscan_url;?>.svg?&amp;snap_code_size=175" /></a>
+										<div class="snapscan_pay_text_button">
+											Scan to Pay or
+											<a class="snapscan_button" href="<?php echo $snapscan_url;?>" target="_blank">
+											<strong>Click to Pay</strong> with Snapscan</a>
+										</div>
+									</div>
+							</div>
+						<?php endif;?>
+					<?php endif; ?>
+				<?php endif; ?>
+
 				<?php if (get_row_layout()== 'recent_block'): ?>
 					<?php $type = get_sub_field('content_type');?>
 					<?php  $count = get_sub_field('recent_block_count');?>
-						<div class = 'recent_block <?php echo $type;?>'>
+						<div class = 'recent_block <?php echo $type;?> margins'>
 							<?php if(get_sub_field('recent_block_title')):?>
 								<h2 class = 'recent_block_title title'>
 									<?php echo (get_sub_field('recent_block_title'));?>
@@ -357,7 +381,7 @@
 
 				if( have_rows('resources_layouts') ): ?>
 					<?php while( have_rows('resources_layouts') ): the_row(); ?>
-						<div class = "resources_container">
+						<div class = "resources_container margins">
 							<div class = 'resources_wysiwyg'>
 								<?php apply_filters('the_content',the_sub_field('resources_wysiwyg')); ?> 
 							</div>
@@ -368,7 +392,7 @@
 										<?php $title =  get_sub_field('resource_repeater_title');?>
 										<h2 class = 'resource_title title'><?php echo $title;?></h2>
 									</summary>
-										<div class = 'resource_description_wysiwyg margins'>
+										<div class = 'resource_description_wysiwyg  details_content'>
 											<?php apply_filters('the_content', the_sub_field('resource_repeater_wysiwyg')); ?>
 												<?php if(have_rows('resources_file_repeater')):?>
 													<div class = 'downloadable files'>
@@ -377,7 +401,7 @@
 																$file = get_sub_field('resource_file');
 																$name = get_sub_field('resource_file_name');
 																	if( $file ): ?>
-																		<a href="<?php echo $file['url']; ?>"target="_blank" download><?php echo $name; ?></a>
+																		<a class = "download" href="<?php echo $file['url']; ?>"target="_blank" download><?php echo $name; ?></a>
 																	<?php endif; ?>
 														<?php endwhile; ?>
 																	</div>

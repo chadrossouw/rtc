@@ -319,6 +319,7 @@ textarea {
 
 details {
 	display: block;
+	border-bottom: 1px solid $color_red;
 }
 
 /*
@@ -327,6 +328,9 @@ details {
 
 summary {
 	display: list-item;
+	cursor: pointer;
+    list-style: none;
+	position: relative;
 }
 
 /* Misc
