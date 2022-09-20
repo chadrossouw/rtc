@@ -108,11 +108,10 @@ function reclaimthecity_scripts() {
 	if(is_front_page()||is_singular('post')){
 		wp_enqueue_script( 'reclaimthecity-audio', get_template_directory_uri() . '/js/audio.js', array(), RECLAIMTHECITY_VERSION, true );
 	}
-	if(is_front_page()){
-		wp_enqueue_script( 'swiper', get_template_directory_uri() . '/js/swiper-bundle.min.js', array(), RECLAIMTHECITY_VERSION, true );
-		wp_enqueue_script( 'swiper-init', get_template_directory_uri() . '/js/swiper-init.js', array('swiper'), RECLAIMTHECITY_VERSION, true );
-		wp_enqueue_style( 'swiper-style', get_template_directory_uri() . '/css/swiper-bundle.min.css', array(), RECLAIMTHECITY_VERSION);
-	}
+	wp_enqueue_script( 'swiper', get_template_directory_uri() . '/js/swiper-bundle.min.js', array(), RECLAIMTHECITY_VERSION, true );
+	wp_enqueue_script( 'swiper-init', get_template_directory_uri() . '/js/swiper-init.js', array('swiper'), RECLAIMTHECITY_VERSION, true );
+	wp_enqueue_style( 'swiper-style', get_template_directory_uri() . '/css/swiper-bundle.min.css', array(), RECLAIMTHECITY_VERSION);
+
 }
 add_action( 'wp_enqueue_scripts', 'reclaimthecity_scripts' );
 

@@ -4,10 +4,10 @@
 
 
 
-.post,
+/*.post,
 .page {
 	margin-bottom:1.5em;
-}
+}*/
 
 .updated:not(.published) {
 	display: none;
@@ -18,7 +18,7 @@
 	margin: 0 0 1.5em;
 }
 
-body{
+html,body{
 	background: $color_white;
 }
 .content .page {
@@ -108,9 +108,10 @@ a.button:visited {
   }
 
 
+/* Flagged in case this breaks the site. Delete if safe.
 .site-main article:not(.no-max) {
     max-width: 1200px;
-}
+}*/
 
 
 /*Header*/
@@ -186,66 +187,7 @@ z-index:-1;
 .menu-primary li a:visited, .bl_no_bg.home .menu-primary li a:visited{
 	color:#372D2D;
 }
-/*Search in Nav*/
-.nav-search-form {
-	position: absolute;
-	top: 65%;
-}
 
-@media only screen and (min-width:1200px){
-	.nav-search-form {
-		position: relative;
-		top: 0;
-	}
-}
-
-#search-form {
-	font-family: 'Playfair Display';
-	background-color: $color_bg_cream;
-	border: 0;
-	border-bottom: $color-text-black 2px solid;
-	color: $color-text-black;
-	font-weight: 400;
-	border-radius:0;
-}
-
-.menu .menu-item .search-form input{
-	background-color: transparent;
-	border:none;
-	padding:5px 0 5px 5px;
-	margin:2px 0 2px 2px;
-	
-	
-}
-#genesis-nav-primary.shrink .menu .menu-item .search-form input[type=search]{
-	color:#A02700;
-}
-.menu .menu-item input:focus{
-		text-decoration: underline;
-
-}
-.menu-item input::placeholder{
-	letter-spacing: -0.1em;
-	text-decoration: none;
-}
-.menu-item .search-form input[type="submit"]{
-	background: transparent;
-	border:none;
-    padding-left:2px;
-    padding-right:5px;
-    display: inline-flex;
-    -webkit-font-smoothing: antialiased;
-    font: normal 27px/1 'dashicons';
-    vertical-align: middle;
-}
-#genesis-nav-primary .menu .menu-item input[type="submit"]:hover{
-	color:#A02700;
-	background-color: transparent;
-}
-.menu-main-menu-container {
-	//padding: 1rem 0;
-	position: relative;
-}
 /*Nav Animation*/
 #genesis-nav-primary.shrink {
 position: fixed;
@@ -322,6 +264,12 @@ animation-name: slideInDown-2;
 }
 
 /*hero region*/
+
+header.entry-header svg {
+    margin-left: var(--margin);
+    margin-right: var(--margin);
+}
+
 #bl_hero{
 	min-height:300px;
 	background-color:#faf7e8;
@@ -429,6 +377,13 @@ section.bl_home_section:nth-of-type(1)::before{
 /*Layouts*/
 .hero_image_container {
     width: 100%;
+	max-width: 100vw;
+	overflow: hidden;
+}
+@media only screen and (min-width:700px){
+	.hero_image_container{
+		margin-bottom: 2rem;
+	}
 }
 
 .hero_carousel_thumbnail img {
@@ -436,11 +391,18 @@ section.bl_home_section:nth-of-type(1)::before{
     width: 100vw;
     max-height: 32rem;
     object-fit: cover;
+	height: 20rem;
 }
 
 .divider {
     border-bottom: $color_red 2px solid;
 	margin-top: 2rem;
+}
+
+@media only screen and (min-width:1200px){
+	.hero_carousel_thumbnail img {
+		height: 32rem;
+	}
 }
 
 
@@ -450,56 +412,11 @@ section.bl_home_section:nth-of-type(1)::before{
 	padding-top: 2rem;
 	padding-bottom: 2rem;
 	overflow: hidden;
-			&.sea_blue{
-				background-color: $color_sea_blue;
-			}
-			&.burnt_orange{
-				background-color: $color_burnt_orange;
-			}
-			&.yellow{
-				background-color: $color_yellow;
-			}
-			&.deep_green{
-				background-color: $color_deep_green;
-			}
-			&.cream {
-				background-color: $color_bg_cream;
-			}
 	}
 
 .carousel_title {
 	font-size: $font_34px;
 	text-align: center;
-}
-
-.button_carousel {
-	font-family: 'Playfair Display';
-	font-size: $font_24px;
-	font-weight: 400;
-	margin: 1rem auto 0;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-		&.yellow {
-			color: $color_yellow;
-			background-color: $color_text_black;
-		}
-		&.sea_blue {
-			color: $color_sea_blue;
-			background-color: $color_deep_green;
-		}
-		&.burnt_orange {
-			color: $color_burnt_orange;
-			background-color: $color_bg_cream;
-		}
-		&.deep_green {
-			color: $color_deep_green;
-			background-color: $color_sea_blue;
-		}
-		&.cream {
-			color: $color_bg_cream;
-			background-color: $color_deep_green;
-		}
 }
 
 .carousel_item a {
@@ -516,9 +433,9 @@ section.bl_home_section:nth-of-type(1)::before{
 		overflow: visible;
 	}
 	.swiper-button-next, .swiper-button-prev {
-		top:112%;
+		//top:112%;
 		&:hover{
-			filter: invert(1) hue-rotate(-20deg) brightness(0.4);
+			//filter: invert(1) hue-rotate(-20deg) brightness(0.4);
 		}
 	}
 }
@@ -528,11 +445,36 @@ section.bl_home_section:nth-of-type(1)::before{
 	justify-content: center;
 }
 
+@media only screen and (min-width:700px){
+	 .swiper .swiper-button-prev{
+		left: var(--margin);
+	}
+	
+	.swiper .swiper-button-next{
+		right: var(--margin);
+	}
+}
+
+@media only screen and (min-width:1200px){
+	.swiper .swiper-button-prev{
+	   left: 15%;
+   }
+   
+   .swiper .swiper-button-next{
+	   right: 15%;
+   }
+}
+
+
 /*RTC Text Block*/
 
 .text_block_container {
 	padding-top: 1rem;
 	padding-bottom: 1rem;
+}
+
+.text_block_wysiwyg {
+    font-weight: 500;
 }
 
 .text_block_container.margins h2 {
@@ -573,6 +515,8 @@ h3.donate_heading {
     font-size: $font_50px;
     text-align: center;
     text-transform: uppercase;
+	margin-top: 1rem;
+	margin-bottom: 1rem;
 }
 
 .donate_button.button {
@@ -627,9 +571,21 @@ h3.donate_block_follow_heading {
 
 	}
 
-	.flex.flex-20.so-me {
+	.social_media_block .flex.flex-20.so-me {
 		align-items: center;
+		justify-content: space-between;
+	}
+}
+
+@media only screen and (min-width: 1000px){
+	.social_media_block .flex.flex-20.so-me {
 		justify-content: space-evenly;
+	}
+}
+
+@media only screen and (min-width: 1200px){
+	.social_media_block .flex.flex-20.so-me {
+		gap: 0;
 	}
 }
 
@@ -643,11 +599,25 @@ h3.donate_block_follow_heading {
 .css-1dbjc4n.r-1sw30gj.r-109y4c4 {
     background-color: $color_red;
 }
+@media only screen and (min-width: 700px){
+	#ctf .ctf-item{
+		flex-basis: 32%;
+		width:33%
+	}
 
-//Instagram
-.sbi_item {
-    border-bottom: 1px solid $color_red;
+	.ctf-tweets {
+		display: flex;
+		width: 100%;
+		justify-content: space-between;
+	}
+	
+	div#ctf {
+		display: flex;
+		flex-wrap: wrap;
+	}
+
 }
+
 
 /*RTC Partners Block*/
 
@@ -717,6 +687,63 @@ a.archive_button.statement.button {
 	display: inline-block;
 	margin-left: 2rem;
 }
+//Image Carousel
+
+.carousel_thumbnail, .campaign_carousel_thumbnail {
+	@include proportional-container(56.25%);
+	img{
+		@include proportional-image;
+		@include media1000{
+			object-fit: contain;
+		}
+    }
+}
+
+.carousel_item_title, .campaign_carousel_title {
+    font-weight: 500;
+    color: $color_white;
+    background: $color_black;
+    padding: 0.5rem;
+    text-align: center;
+}
+
+.carousel_description{
+	margin-bottom: 1rem;
+}
+
+.carousel_container.margins .swiper .swiper-button-prev,
+.campaign_carousel_container .swiper .swiper-button-prev {
+	top:35%;
+}
+
+.carousel_container.margins .swiper .swiper-button-next,
+.campaign_carousel_container .swiper .swiper-button-next{
+	top:35%;
+}
+
+@media screen and (min-width: 700px){
+	.carousel_container.margins .swiper .swiper-button-prev,
+	.campaign_carousel_container .swiper .swiper-button-prev  {
+		top:50%;
+	}
+	.carousel_container.margins .swiper .swiper-button-next,
+	.campaign_carousel_container .swiper .swiper-button-next {
+		top:50%;
+	}
+}
+
+@media screen and (min-width: 1200px){
+	.carousel_container.margins .swiper .swiper-button-prev,
+	.campaign_carousel_container .swiper .swiper-button-prev {
+		left: 8%;
+	}
+	
+	.carousel_container.margins .swiper .swiper-button-next,
+	.campaign_carousel_container .swiper .swiper-button-prev {
+		right: 8%;
+	}
+}
+
 
 //Podcast Block
 
@@ -912,22 +939,42 @@ h2.archive_item_title {
 
 //Youtube Block
 
+a.youtube_button.button {
+    display: block;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+.sby_play_btn  svg {
+    display: none;
+}
+
 .sby_item {
     position: relative;
 }
 
-.sby_item::after {
+.sby_play_btn::after {
     content: '';
     width: 5rem;
     height: 5rem;
     position: absolute;
-    left: 40%;
-    top: 40%;
+    left: 0;
+    top: 0;
     background-image: url(./assets/play.svg);
     background-size: contain;
     background-repeat: no-repeat;
     z-index: 99999999;
 }
+
+/*RTC Our Campaigns*/
+
+.campaign_video .embed-container{
+	@include proportional-container(56.25%);
+}
+
+.campaign_video .embed-container iframe { 
+	@include proportional-image;
+}
+
 
 /* RTC Our Movement Page */
 .our_movement_grandchild_list a {
@@ -1103,9 +1150,6 @@ a.snapscan_button{
 	transition: 300ms;
 }
 
-a.snapscan_button:hover {
-    background-image: linear-gradient(rgb(0 0 0/40%) 0 0);
-}
 
 a.snapscan_button:visited{
     color: $color_white;
@@ -1443,6 +1487,14 @@ h2.generic_post_title {
 	padding:0px 20px;
 }
 
+#colophon {
+    padding-bottom: 2rem;
+}
+
+.footer .so-me svg {
+	width: 40px;
+}
+
 .site-footer {
     background: $color_black;
     color: $color_white;
@@ -1483,6 +1535,13 @@ h2.generic_post_title {
 	right:5%;*/
 	height:3px;
 	border-top:3px solid #372D2D;
+}
+
+@include media1200{
+	.bl_footer.margins {
+		margin-left: 15%;
+		margin-right: 15%;
+	}
 }
 
 	
@@ -1754,6 +1813,8 @@ form.wpcf7-form, #mc4wp-form-1{
 		grid-column: 4/5;
 		grid-row: 1/2;
 	}
+
+
 
 	.flex.flex-20.so-me {
 		align-items: flex-end;

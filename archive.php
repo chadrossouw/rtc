@@ -19,7 +19,7 @@ $q = get_queried_object();
 	// The Loop
 	while ( have_posts() ) : the_post(); ?>
 	<?php $post_id = get_the_ID(); ?>
-		<div class="rtc_archive_container margins">
+		<div class="rtc_archive_container">
 		<?php if(get_post_type()!='podcast'): ?>	
 			<a class="archive_item_title statement" href="<?php echo get_permalink($post_id); ?>">
 			<?php echo get_the_title(); ?>

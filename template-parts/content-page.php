@@ -9,7 +9,7 @@
 
 ?>
 
-<article id="post-<?php the_ID(); ?>" <?php post_class('margins'); ?>>
+<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 <?php if(!is_front_page()):?>
 	<header class="entry-header">
 		<?php 
@@ -44,7 +44,7 @@
 						<?php if(get_sub_field('hero_image_title')): ?>
 							<h2 class = "hero_title title"><?php echo get_sub_field('hero_image_title'); ?></h2>
 						<?php endif; ?>
-						<div class = "hero_image_carousel swiper">
+						<div class = "hero_image_carousel carousel_carousel swiper">
 							<div class = "swiper-wrapper">
 								<?php foreach( get_sub_field('hero_image_carousel') as $item) { ?>
 											<div class = "hero_carousel_item swiper-slide">
@@ -107,12 +107,12 @@
 								<?php endif; ?>
 							<div class="embed-container">
 								<?php if ($feed =='twitter'):?>
-									<div class="rtc_container--twitter margins" id="twitter">
+									<div class="rtc_container--twitter" id="twitter">
 										<?php echo do_shortcode('[custom-twitter-feeds feed=1]');?>
 									</div>
 
 								<?php elseif ($feed =='instagram'):?>
-									<div class="rtc_container--instagram margins" id="instagram">
+									<div class="rtc_container--instagram" id="instagram">
 												<?php echo do_shortcode('[instagram-feed feed=1]'); ?>
 									</div>
 								<?php endif;?>
@@ -150,6 +150,9 @@
 						<div class = "carousel_container margins">
 							<?php if(get_sub_field('carousel_title')): ?>
 								<h2 class = "carousel_title title"><?php echo get_sub_field('carousel_title'); ?></h2>
+							<?php endif; ?>
+							<?php if(get_sub_field('carousel_description')): ?>
+								<div class = "carousel_description"><?php echo get_sub_field('carousel_description'); ?></div>
 							<?php endif; ?>
 							<div class = "general_carousel swiper">
 								<div class = "swiper-wrapper">
@@ -314,13 +317,13 @@
 				)
 			);
 			foreach ($child_pages as $child){ ?>
-				<div class = 'our_movement_title'>
+				<div class = 'our_movement_title margins'>
 					<h2 class = 'title'> <?php echo $child->post_title;?> </h2>
 				</div>
-				<div class = 'our_movement_wysiwyg'>
+				<div class = 'our_movement_wysiwyg margins'>
 					<?php the_field('our_movement_wysiwyg', $child); ?>
 				</div>
-				<div class = 'our_movement_grandchild_list'>
+				<div class = 'our_movement_grandchild_list margins'>
 
 					<?php	$grandchild_pages = get_pages(
 							array(
