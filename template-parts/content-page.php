@@ -18,7 +18,7 @@
 			echo file_get_contents($header);?>
 			<h1 class = 'screen-reader-text'><?php echo get_the_title();?></h1>
 	<?php	 else:
-			 the_title( '<h1 class="entry-title">', '</h1>' );
+			 the_title( '<h1 class="entry-title margins">', '</h1>' );
 		endif;?>
 
 	</header><!-- .entry-header -->
@@ -161,7 +161,9 @@
 													<div class = "carousel_thumbnail">
 														<?php echo wp_get_attachment_image($item, 'large'); ?>
 													</div>
-													<p class = "carousel_item_title"><?php echo get_the_title($item); ?></p>
+													<?php if (get_the_title($item)):?>
+														<p class = "carousel_item_title"><?php echo get_the_title($item); ?></p>
+													<?php endif;?>
 												</div>
 									<?php } ?> 
 								</div>
@@ -188,7 +190,7 @@
 							<?php echo do_shortcode('[youtube-feed feed=1]'); ?>
 							<?php $youtube_url = (get_field('social_media', 'option')['youtube']);?>
 								<?php if($youtube_url):?>
-									<a class = 'youtube_button button' href = "<?php echo $youtube_url;?>">View Video Archive</a>
+									<a class = 'youtube_button button' href = "<?php echo $youtube_url;?>"target="_blank">View Video Archive</a>
 									<?php endif;?>
 						</div>
 					<?php endif; ?>
@@ -275,14 +277,16 @@
 											<?php if(get_sub_field('campaign_gallery_title')):?>
 												<h2 class = "campaign_gallery_title title"><?php echo get_sub_field('campaign_gallery_title'); ?></h2>
 											<?php endif; ?>
-											<div class = "campsign_carousel swiper">
+											<div class = "campaign_carousel swiper">
 												<div class = "swiper-wrapper">
 													<?php foreach( get_sub_field('campaign_gallery') as $item) { ?>
 																<div class = "campaign_carousel_item swiper-slide">
 																	<div class = "campaign_carousel_thumbnail">
 																		<?php echo wp_get_attachment_image($item, 'large'); ?>
 																	</div>
-																	<p class = "campaign_carousel_title"><?php echo get_the_title($item); ?></p>
+																	<?php if (get_the_title($item)):?>
+																		<p class = "campaign_carousel_title"><?php echo get_the_title($item); ?></p>
+																	<?php endif; ?>
 																</div>
 													<?php } ?> 
 												</div>

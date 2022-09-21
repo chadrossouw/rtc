@@ -1183,10 +1183,6 @@ a.button:visited {
 	display: none;
 }
 
-/* Flagged in case this breaks the site. Delete if safe.
-.site-main article:not(.no-max) {
-    max-width: 1200px;
-}*/
 /*Header*/
 .site-container {
 	background: transparent;
@@ -1567,7 +1563,7 @@ h2.text_block_title.title {
 		grid-column-gap: 1rem;
 	}
 	.text_block_container.margins h2 {
-		margin-top: 0;
+		margin-top: 1rem;
 		margin-bottom: 1.5rem;
 		display: inline-block;
 	}
@@ -1778,38 +1774,42 @@ a.archive_button.statement.button {
 	text-align: center;
 }
 
+p.carousel_item_title {
+	margin-bottom: 0;
+}
+
 .carousel_description {
 	margin-bottom: 1rem;
 }
 
 .carousel_container.margins .swiper .swiper-button-prev,
-.campaign_carousel_container .swiper .swiper-button-prev {
+.campaign_carousel.swiper .swiper-button-prev {
 	top: 35%;
 }
 
 .carousel_container.margins .swiper .swiper-button-next,
-.campaign_carousel_container .swiper .swiper-button-next {
+.campaign_carousel.swiper .swiper-button-next {
 	top: 35%;
 }
 
 @media screen and (min-width: 700px) {
 	.carousel_container.margins .swiper .swiper-button-prev,
-	.campaign_carousel_container .swiper .swiper-button-prev {
+	.campaign_carousel.swiper .swiper-button-prev {
 		top: 50%;
 	}
 	.carousel_container.margins .swiper .swiper-button-next,
-	.campaign_carousel_container .swiper .swiper-button-next {
+	.campaign_carousel.swiper .swiper-button-next {
 		top: 50%;
 	}
 }
 
 @media screen and (min-width: 1200px) {
 	.carousel_container.margins .swiper .swiper-button-prev,
-	.campaign_carousel_container .swiper .swiper-button-prev {
+	.campaign_carousel.swiper .swiper-button-prev {
 		left: 8%;
 	}
 	.carousel_container.margins .swiper .swiper-button-next,
-	.campaign_carousel_container .swiper .swiper-button-prev {
+	.campaign_carousel.swiper .swiper-button-next {
 		right: 8%;
 	}
 }
@@ -2029,6 +2029,28 @@ a.youtube_button.button {
 	object-fit: cover;
 }
 
+h2.campaign_title.title {
+	text-align: left;
+}
+
+@media screen and (min-width: 700px) {
+	h2.campaign_title.title {
+		max-width: 60vw;
+	}
+}
+
+@media screen and (min-width: 1000px) {
+	h2.campaign_title.title {
+		max-width: 50vw;
+	}
+}
+
+@media screen and (min-width: 1200px) {
+	h2.campaign_title.title {
+		max-width: 30vw;
+	}
+}
+
 /* RTC Our Movement Page */
 .our_movement_grandchild_list a {
 	background: #B30100;
@@ -2084,6 +2106,7 @@ a.youtube_button.button {
 	padding: 0.5rem;
 	text-align: center;
 	margin: 0 auto;
+	margin-bottom: 2rem;
 }
 
 .hc_quote_source {
@@ -2213,6 +2236,10 @@ a.snapscan_button:visited {
 	.snapscan_container {
 		align-items: flex-start;
 	}
+}
+
+h2.snapscan_title.title {
+	margin-top: 1rem;
 }
 
 /*Home Podcasts and Events*/
