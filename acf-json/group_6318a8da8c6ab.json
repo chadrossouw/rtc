@@ -1,0 +1,99 @@
+{
+    "key": "group_6318a8da8c6ab",
+    "title": "Press Statement",
+    "fields": [
+        {
+            "key": "field_6318a9c8dc025",
+            "label": "Date of Statement",
+            "name": "date_of_statement",
+            "type": "date_picker",
+            "instructions": "The date is important for sorting the entries in the archive. If left blank it will be inserted as the latest entry.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "display_format": "F j, Y",
+            "return_format": "F j, Y",
+            "first_day": 1
+        },
+        {
+            "key": "field_6318a93519171",
+            "label": "Press Statement Description",
+            "name": "press_statement_description",
+            "type": "textarea",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "placeholder": "",
+            "maxlength": "",
+            "rows": "",
+            "new_lines": ""
+        },
+        {
+            "key": "field_6318a95219172",
+            "label": "Press Statement File",
+            "name": "press_statement_file",
+            "type": "file",
+            "instructions": "",
+            "required": 1,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "return_format": "url",
+            "library": "all",
+            "min_size": "",
+            "max_size": "",
+            "mime_types": ""
+        },
+        {
+            "key": "field_6321d53aa2121",
+            "label": "Press Statement Full Text",
+            "name": "press_statement_full_text",
+            "type": "wysiwyg",
+            "instructions": "If pasting text from another source (Word etc), make sure that Paste as Text (the icon of a clipboard with a T) is enabled, so that you strip it of any formatting. Rather do formatting (bold, italic, headings, etc) within the editor below. If you would like to add headings in the text, change the heading from Paragraph to Heading 2.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "statement"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1668521220
+}

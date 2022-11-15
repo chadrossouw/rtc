@@ -1,0 +1,44 @@
+{
+    "key": "group_6318547d5557f",
+    "title": "Our Movement Fields",
+    "fields": [
+        {
+            "key": "field_631854a297bed",
+            "label": "Our Movement WYSIWYG",
+            "name": "our_movement_wysiwyg",
+            "type": "wysiwyg",
+            "instructions": "If pasting text from another source (Word etc), make sure that Paste as Text (the icon of a clipboard with a T) is enabled, so that you strip it of any formatting. Rather do formatting (bold, italic, headings, etc) within the editor below. \r\n\r\nIf you would like to add headings in the text, change the heading from Paragraph to Heading 2.",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "default_value": "",
+            "tabs": "all",
+            "toolbar": "full",
+            "media_upload": 1,
+            "delay": 0
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_parent",
+                "operator": "==",
+                "value": "14"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1668521172
+}

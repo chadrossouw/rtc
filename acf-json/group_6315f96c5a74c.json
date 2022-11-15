@@ -1,0 +1,812 @@
+{
+    "key": "group_6315f96c5a74c",
+    "title": "Layouts",
+    "fields": [
+        {
+            "key": "field_6315f972698a4",
+            "label": "Layouts",
+            "name": "layouts",
+            "type": "flexible_content",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "layouts": {
+                "layout_6315f97ee499e": {
+                    "key": "layout_6315f97ee499e",
+                    "name": "hero_image",
+                    "label": "Hero Image",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_631602ed2c78e",
+                            "label": "Hero Image Title",
+                            "name": "hero_image_title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_6315f982698a5",
+                            "label": "Hero Image Carousel",
+                            "name": "hero_image_carousel",
+                            "type": "gallery",
+                            "instructions": "Use high resolution images for this, as they will be display at a large size.\r\nSmaller images will pixellate and not look great.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "preview_size": "large",
+                            "insert": "append",
+                            "library": "all",
+                            "min": 1,
+                            "max": "",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6315f9f1f3de2": {
+                    "key": "layout_6315f9f1f3de2",
+                    "name": "text_block",
+                    "label": "Text Block",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6315fa2df3de4",
+                            "label": "Text Block Columns",
+                            "name": "text_block_column_count",
+                            "type": "radio",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "one": "One",
+                                "two": "Two"
+                            },
+                            "allow_null": 0,
+                            "other_choice": 0,
+                            "default_value": "one",
+                            "layout": "vertical",
+                            "return_format": "value",
+                            "save_other_choice": 0
+                        },
+                        {
+                            "key": "field_6315fa03f3de3",
+                            "label": "Text Block Title",
+                            "name": "text_block_title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_6315fa7ef3de5",
+                            "label": "Text Block WYSIWYG",
+                            "name": "text_block_wysiwyg",
+                            "type": "wysiwyg",
+                            "instructions": "If pasting text from another source (Word etc), make sure that Paste as Text (the icon of a clipboard with a T) is enabled, so that you strip it of any formatting. Rather do formatting (bold, italic, headings, etc) within the editor below. \r\n\r\nIf you would like to add headings in the text, change the heading from Paragraph to Heading 2.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6315fb0580543": {
+                    "key": "layout_6315fb0580543",
+                    "name": "donate_block",
+                    "label": "Donate Block",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6315fb1580544",
+                            "label": "Heading Text",
+                            "name": "donate_block_heading_text",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_6315fb4c80545",
+                            "label": "Donate Block Button Text",
+                            "name": "donate_block_button_text",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_6315fb6980546",
+                            "label": "Donate Block Button Url",
+                            "name": "donate_block_button_url",
+                            "type": "url",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_6315fb8580547",
+                            "label": "Donate Block Follow Heading",
+                            "name": "donate_block_follow_heading",
+                            "type": "text",
+                            "instructions": "Use <br> to force a line break.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6315fc8323099": {
+                    "key": "layout_6315fc8323099",
+                    "name": "social_media_block",
+                    "label": "Social Media Block",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6315fd213dd7c",
+                            "label": "Social Media Title",
+                            "name": "social_media_title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_6315fca82309a",
+                            "label": "Social Media Feed",
+                            "name": "social_media_feed",
+                            "type": "radio",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "twitter": "Twitter",
+                                "instagram": "Instagram",
+                                "facebook": "Facebook"
+                            },
+                            "allow_null": 0,
+                            "other_choice": 0,
+                            "default_value": "",
+                            "layout": "vertical",
+                            "return_format": "value",
+                            "save_other_choice": 0
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6315fd4a8edd1": {
+                    "key": "layout_6315fd4a8edd1",
+                    "name": "partners_block",
+                    "label": "Partners Block",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6315fd5b8edd2",
+                            "label": "Partners Title",
+                            "name": "partners_title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_6315fd678edd3",
+                            "label": "Partners WYSIWYG",
+                            "name": "partners_wysiwyg",
+                            "type": "wysiwyg",
+                            "instructions": "If pasting text from another source (Word etc), make sure that Paste as Text (the icon of a clipboard with a T) is enabled, so that you strip it of any formatting. Rather do formatting (bold, italic, headings, etc) within the editor below. \r\n\r\nIf you would like to add headings in the text, change the heading from Paragraph to Heading 2.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_6315fd8d8edd4",
+                            "label": "Partner Logo Repeater",
+                            "name": "partner_logo_repeater",
+                            "type": "repeater",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "collapsed": "",
+                            "min": 0,
+                            "max": 0,
+                            "layout": "table",
+                            "button_label": "",
+                            "sub_fields": [
+                                {
+                                    "key": "field_6317147b07e55",
+                                    "label": "Partner Logo",
+                                    "name": "partner_logo",
+                                    "type": "image",
+                                    "instructions": "Should ideally be a transparent png, but a white background should be okay. If no logo is uploaded, the partner's name will display.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "return_format": "id",
+                                    "preview_size": "medium",
+                                    "library": "all",
+                                    "min_width": "",
+                                    "min_height": "",
+                                    "min_size": "",
+                                    "max_width": "",
+                                    "max_height": "",
+                                    "max_size": "",
+                                    "mime_types": ""
+                                },
+                                {
+                                    "key": "field_6315fdc18edd5",
+                                    "label": "Partner Name",
+                                    "name": "partner_name",
+                                    "type": "text",
+                                    "instructions": "Name of partner. Important for accessibility.",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": "",
+                                    "prepend": "",
+                                    "append": "",
+                                    "maxlength": ""
+                                },
+                                {
+                                    "key": "field_6315fdf38edd6",
+                                    "label": "Partner Url",
+                                    "name": "partner_url",
+                                    "type": "url",
+                                    "instructions": "",
+                                    "required": 0,
+                                    "conditional_logic": 0,
+                                    "wrapper": {
+                                        "width": "",
+                                        "class": "",
+                                        "id": ""
+                                    },
+                                    "default_value": "",
+                                    "placeholder": ""
+                                }
+                            ]
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_631897472e478": {
+                    "key": "layout_631897472e478",
+                    "name": "contact_form",
+                    "label": "Contact Form",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6318975e2e479",
+                            "label": "Enable Contact Form?",
+                            "name": "enable_contact_form",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "Enable Contact Form?",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6318afcd3f178": {
+                    "key": "layout_6318afcd3f178",
+                    "name": "image_carousel",
+                    "label": "Image Carousel",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_6318afd73f179",
+                            "label": "Carousel Title",
+                            "name": "carousel_title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_6329cdd402d01",
+                            "label": "Carousel Description",
+                            "name": "carousel_description",
+                            "type": "text",
+                            "instructions": "Description of the significance of this selection of images. Optional.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_6318afe13f17a",
+                            "label": "Carousel Gallery",
+                            "name": "carousel_gallery",
+                            "type": "gallery",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "return_format": "id",
+                            "preview_size": "medium",
+                            "insert": "append",
+                            "library": "all",
+                            "min": "",
+                            "max": "",
+                            "min_width": "",
+                            "min_height": "",
+                            "min_size": "",
+                            "max_width": "",
+                            "max_height": "",
+                            "max_size": "",
+                            "mime_types": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_6320979d66c71": {
+                    "key": "layout_6320979d66c71",
+                    "name": "youtube_feed",
+                    "label": "Youtube Feed",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_632097bf66c72",
+                            "label": "Enable Youtube Feed",
+                            "name": "enable_youtube_feed",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "Enable Youtube feed?",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        },
+                        {
+                            "key": "field_632099aa920ef",
+                            "label": "Youtube Feed Title",
+                            "name": "youtube_feed_title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_63218fc117134": {
+                    "key": "layout_63218fc117134",
+                    "name": "recent_block",
+                    "label": "Recent Block",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_63218fce17135",
+                            "label": "Content Type",
+                            "name": "content_type",
+                            "type": "select",
+                            "instructions": "Select type of recent content to display.",
+                            "required": 1,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "choices": {
+                                "podcast": "Podcasts",
+                                "statement": "Statements"
+                            },
+                            "default_value": false,
+                            "allow_null": 0,
+                            "multiple": 0,
+                            "ui": 0,
+                            "return_format": "value",
+                            "ajax": 0,
+                            "placeholder": ""
+                        },
+                        {
+                            "key": "field_6321904917136",
+                            "label": "Recent Block Title",
+                            "name": "recent_block_title",
+                            "type": "text",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "maxlength": ""
+                        },
+                        {
+                            "key": "field_6321905317137",
+                            "label": "Recent Block Description",
+                            "name": "recent_block_wysiwyg",
+                            "type": "wysiwyg",
+                            "instructions": "If pasting text from another source (Word etc), make sure that Paste as Text (the icon of a clipboard with a T) is enabled, so that you strip it of any formatting. Rather do formatting (bold, italic, headings, etc) within the editor below. \r\n\r\nIf you would like to add headings in the text, change the heading from Paragraph to Heading 2.",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "tabs": "all",
+                            "toolbar": "full",
+                            "media_upload": 1,
+                            "delay": 0
+                        },
+                        {
+                            "key": "field_6321909217138",
+                            "label": "Recent Block Number of Items",
+                            "name": "recent_block_count",
+                            "type": "number",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "default_value": "",
+                            "placeholder": "",
+                            "prepend": "",
+                            "append": "",
+                            "min": 1,
+                            "max": 5,
+                            "step": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_63247eafad07e": {
+                    "key": "layout_63247eafad07e",
+                    "name": "red_divider",
+                    "label": "Red Divider",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_63247ef4ad07f",
+                            "label": "Divider",
+                            "name": "add_divider",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "Add a divider underneath the block?",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_63281d51f9993": {
+                    "key": "layout_63281d51f9993",
+                    "name": "snapscan_donate_block",
+                    "label": "Snapscan Donate Block",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_63281d65f9994",
+                            "label": "Add Snapscan Donate Block?",
+                            "name": "add_snapscan_donate_block",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 1,
+                            "ui": 1,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                },
+                "layout_637396157fdf7": {
+                    "key": "layout_637396157fdf7",
+                    "name": "newsletter_block",
+                    "label": "Newsletter Block",
+                    "display": "block",
+                    "sub_fields": [
+                        {
+                            "key": "field_637396297fdf8",
+                            "label": "Add Newsletter Block",
+                            "name": "add_newsletter_block",
+                            "type": "true_false",
+                            "instructions": "",
+                            "required": 0,
+                            "conditional_logic": 0,
+                            "wrapper": {
+                                "width": "",
+                                "class": "",
+                                "id": ""
+                            },
+                            "message": "",
+                            "default_value": 0,
+                            "ui": 0,
+                            "ui_on_text": "",
+                            "ui_off_text": ""
+                        }
+                    ],
+                    "min": "",
+                    "max": ""
+                }
+            },
+            "button_label": "Add Row",
+            "min": "",
+            "max": ""
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "7"
+            }
+        ],
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "9"
+            }
+        ],
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "12"
+            }
+        ],
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "16"
+            }
+        ],
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "18"
+            }
+        ],
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "20"
+            }
+        ],
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "14"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1668521140
+}

@@ -1,0 +1,189 @@
+{
+    "key": "group_6317402754fb6",
+    "title": "Our Campaigns",
+    "fields": [
+        {
+            "key": "field_6317403b58fd5",
+            "label": "Our Campaigns Repeater",
+            "name": "our_campaigns_repeater",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "row",
+            "button_label": "",
+            "sub_fields": [
+                {
+                    "key": "field_6317406658fd6",
+                    "label": "Campaign Title",
+                    "name": "campaign_title",
+                    "type": "text",
+                    "instructions": "A title is required in order to create the drop-down layout.",
+                    "required": 1,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6317409958fd7",
+                    "label": "Campaign Featured Image",
+                    "name": "campaign_image",
+                    "type": "image",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "library": "all",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_6317410b58fd8",
+                    "label": "Campaign WYSIWYG",
+                    "name": "campaign_wysiwyg",
+                    "type": "wysiwyg",
+                    "instructions": "If pasting text from another source (Word etc), make sure that Paste as Text (the icon of a clipboard with a T) is enabled, so that you strip it of any formatting. Rather do formatting (bold, italic, headings, etc) within the editor below. \r\n\r\nIf you would like to add headings in the text, change the heading from Paragraph to Heading 2.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 1,
+                    "delay": 0
+                },
+                {
+                    "key": "field_6317417958fdb",
+                    "label": "Campaign Gallery Title",
+                    "name": "campaign_gallery_title",
+                    "type": "text",
+                    "instructions": "This is completely optional, it's just there if you want to add media content to your Campaign profiles.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6317412058fd9",
+                    "label": "Campaign Gallery",
+                    "name": "campaign_gallery",
+                    "type": "gallery",
+                    "instructions": "This is completely optional, it's just there if you want to add media content to your Campaign profiles.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "return_format": "id",
+                    "preview_size": "medium",
+                    "insert": "append",
+                    "library": "all",
+                    "min": "",
+                    "max": "",
+                    "min_width": "",
+                    "min_height": "",
+                    "min_size": "",
+                    "max_width": "",
+                    "max_height": "",
+                    "max_size": "",
+                    "mime_types": ""
+                },
+                {
+                    "key": "field_6317418d58fdc",
+                    "label": "Campaign Video Title",
+                    "name": "campaign_video_title",
+                    "type": "text",
+                    "instructions": "This is completely optional, it's just there if you want to add media content to your Campaign profiles.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_6317415958fda",
+                    "label": "Campaign Video",
+                    "name": "campaign_video_embed",
+                    "type": "oembed",
+                    "instructions": "This is completely optional, it's just there if you want to add media content to your Campaign profiles.",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "",
+                        "class": "",
+                        "id": ""
+                    },
+                    "width": "",
+                    "height": ""
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page",
+                "operator": "==",
+                "value": "12"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": "",
+    "show_in_rest": 0,
+    "modified": 1668521160
+}
