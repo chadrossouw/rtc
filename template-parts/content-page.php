@@ -113,7 +113,7 @@
 
 								<?php elseif ($feed =='instagram'):?>
 									<div class="rtc_container--instagram" id="instagram">
-												<?php echo do_shortcode('[instagram-feed feed=1]'); ?>
+												<?php echo do_shortcode('[instagram-feed feed=2]'); ?>
 									</div>
 								<?php endif;?>
 							</div>

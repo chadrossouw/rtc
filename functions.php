@@ -229,22 +229,6 @@ if ( ! function_exists( 'wpse_custom_wp_trim_excerpt' ) ) :
 
 endif; 
 
-/* Fixing conditional logic*/
-add_action('acf/save_post', 'my_acf_save_post', 5);
-function my_acf_save_post( $post_id ) {
-	if( isset($_POST['acf']['field_626bb5cc95341']) ) {
-		$_POST['acf']['field_626bb64e95342'] = '';
-	}
-	elseif(isset($_POST['acf']['field_626bb64e95342']) ){
-		$_POST['acf']['field_626bb5cc95341'] = '';
-	}
-	if( isset($_POST['acf']['field_6284a7a938526']) ) {
-		$_POST['acf']['field_6284a7d338527'] = '';
-	}
-	elseif(isset($_POST['acf']['field_6284a7d338527']) ){
-		$_POST['acf']['field_6284a7a938526'] = '';
-	}
-}
 
 /*removing global styles and svg noise introduced in 5.9*/
 remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
@@ -270,10 +254,6 @@ function boathouse_admin_bar_render() {
 }
 add_action( 'wp_before_admin_bar_render', 'boathouse_admin_bar_render' );
 
-/*Adding rewrite endpoints for shop categories, so we can use a custom query*/
-add_action('init', function() {
-    add_rewrite_endpoint('list', EP_PAGES);
-});
 
 /*removing paged redirect*/
 add_filter( 'redirect_canonical', 'remove_paged_redirect', 10 );
@@ -284,28 +264,6 @@ function remove_paged_redirect( $redirect_url ) {
  
     return $redirect_url;
 }
-
-/*query vars for filters*/
-function add_bl_filter_query_var( $vars ){
-	$vars[] = "bl_cat";
-	$vars[] = "bl_sub_cat";
-	$vars[] = "bl_sort";
-	return $vars;
-  }
-
-  add_filter( 'query_vars', 'add_bl_filter_query_var' );
-
-  /*Contact Form RSVP*/
-  function getRefererPage( $form_tag )
-{
-if (isset($_SERVER['HTTP_REFERER']) && $form_tag['name'] == 'referer-page' ) {
-$postid = url_to_postid( htmlspecialchars($_SERVER['HTTP_REFERER']) );
-$posttitle = get_the_title($postid);
-$form_tag['values'][] = $posttitle;
-}
-return $form_tag;
-}
-add_filter( 'wpcf7_form_tag', 'getRefererPage' );
 
 /**
  *  Enable Options Page for ACF
@@ -332,3 +290,20 @@ function hide_editor() {
   }
 }
 
+add_action( 'pre_get_posts', 'custom_post_type_archive' );
+
+function custom_post_type_archive( $query ) {
+
+	if( $query->is_main_query() && !is_admin() && is_post_type_archive( 'statement' ) ) {
+
+		$query->set( 'meta_key', 'date_of_statement' );
+		$query->set( 'orderby', 'meta_value' );
+		$query->set( 'order', 'DESC' );
+	}
+	if( $query->is_main_query() && !is_admin() && is_post_type_archive( 'podcast' ) ) {
+
+		$query->set( 'meta_key', 'date_of_podcast' );
+		$query->set( 'orderby', 'meta_value' );
+		$query->set( 'order', 'DESC' );
+	}
+}

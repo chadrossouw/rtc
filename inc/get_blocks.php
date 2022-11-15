@@ -15,8 +15,8 @@
         $args['meta_key'] = 'date_of_podcast';
         $args['orderby'] = 'meta_value';
     } 
- $posts = get_posts($args);
- //var_dump($posts);
+    $posts = get_posts($args);
+    //var_dump($posts);
 
     foreach ($posts as $recent){
         $id = $recent->ID;
