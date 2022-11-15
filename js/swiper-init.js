@@ -13,6 +13,9 @@
                 centeredSlides:true,
                 slidesPerView: 1,
                 spaceBetween:2,
+                autoplay: {
+                    delay: 3500,
+                  },
                 
             }
             const carouselInstance = new Swiper(carousel,options);

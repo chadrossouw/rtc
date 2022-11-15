@@ -41,9 +41,7 @@
 				<?php
 					if ( get_row_layout()=='hero_image'): ?>
 					<div class = "hero_image_container">
-						<?php if(get_sub_field('hero_image_title')): ?>
-							<h2 class = "hero_title title"><?php echo get_sub_field('hero_image_title'); ?></h2>
-						<?php endif; ?>
+					
 						<div class = "hero_image_carousel carousel_carousel swiper">
 							<div class = "swiper-wrapper">
 								<?php foreach( get_sub_field('hero_image_carousel') as $item) { ?>
@@ -58,6 +56,10 @@
 							<div class="swiper-button-prev"></div>
 							<div class="swiper-button-next"></div>
 						</div>
+
+						<?php if(get_sub_field('hero_image_title')): ?>
+							<h2 class = "hero_title title"><?php echo get_sub_field('hero_image_title'); ?></h2>
+						<?php endif; ?>
 					</div>
 					<?php elseif ( get_row_layout()=='text_block'): ?>
 						<?php if(get_sub_field('text_block_column_count') == 'one'){ 
@@ -379,9 +381,42 @@
 											<p class = 'hc_quote_info'> <?php echo ($info);?></p>
 										<?php endif;?>
 									</div>
+									</div>
 									<?php endif;?>
 								<?php endwhile; ?>
 							<?php endif; ?>
+
+
+							<?php if( have_rows('our_leaders_repeater') ): ?>
+								<div class = "our_leaders_block block">
+								<h2 class = "our_leaders_title title">Our Leaders</h2>
+								<div class= "leader_wrapper">
+									<?php while ( have_rows('our_leaders_repeater') ): the_row();
+										$portrait = wp_get_attachment_image(get_sub_field('leader_repeater_portrait'),'small');
+										$name = get_sub_field('leader_repeater_name');
+										$bio = get_sub_field('leader_repeater_bio');?>
+											<div class = "single_leader">
+												<div class="leader_portrait">
+													<?php if ($portrait):
+														echo $portrait;?>
+													<?php else:?>
+													<img src='/wp-content/themes/reclaimthecity/assets/noimage.png'>
+													<?php endif; ?>	
+												</div>
+												<div class = "leader_details">
+													<div class = "leader_details_name">
+													<h3 class = "leader_name"><?php echo $name;?></h3>
+													</div>
+													<?php if($bio): ?>
+														<div class="leader_details_bio">
+														<p><?php echo $bio;?>
+														</div>
+													<?php endif;?>
+												</div>
+											</div>
+									<?php endwhile;?>
+								</div>
+							<?php endif;?>
 						<?php endwhile; ?>
 				<?php endif; ?>
 				<?php
@@ -411,8 +446,31 @@
 																		<a class = "download" href="<?php echo $file['url']; ?>"target="_blank" download><?php echo $name; ?></a>
 																	<?php endif; ?>
 														<?php endwhile; ?>
-																	</div>
+													</div>
 												<?php endif; ?>
+
+												<?php if(get_sub_field('resources_carousel')): ?>
+													<div class = 'resources_carousel'>
+														<div class = "resources_carousel swiper">
+															<div class = "swiper-wrapper">
+																<?php foreach( get_sub_field('resources_carousel') as $item) { ?>
+																			<div class = "campaign_carousel_item swiper-slide">
+																				<div class = "campaign_carousel_thumbnail">
+																					<?php echo wp_get_attachment_image($item, 'large'); ?>
+																				</div>
+																				<?php if (get_the_title($item)):?>
+																					<p class = "campaign_carousel_title"><?php echo get_the_title($item); ?></p>
+																				<?php endif; ?>
+																			</div>
+																<?php } ?> 
+															</div>
+															<div class="swiper-button-prev"></div>
+															<div class="swiper-button-next"></div>
+														</div>
+
+													</div>
+												<?php endif; ?>
+	
 										</div>
 									</details>
 								<?php endwhile; ?>

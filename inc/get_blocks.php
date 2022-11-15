@@ -22,8 +22,12 @@
         $id = $recent->ID;
         if('statement'==$type){
             $file = (get_field('press_statement_file', $id));
-            $title = get_the_title($id);?>
-            <a class ='download' href= <?php echo($file);?> download><?php echo($title);?></a>
+            $title = get_the_title($id);
+            $url = get_permalink($id);?>
+            <div class = "statement_download">
+                <a href="<?php echo $url;?>"><?php echo $title;?></a>
+                <a class ='download' href= <?php echo($file);?> download></a>
+            </div>
         <?php }
         else{ 
             $title =  get_the_title($id);
