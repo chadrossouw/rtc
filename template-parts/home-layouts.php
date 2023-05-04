@@ -26,7 +26,7 @@
 								<?php foreach( get_sub_field('hero_image_carousel') as $item) { ?>
 											<div class = "hero_carousel_item swiper-slide">
 												<div class = "hero_carousel_thumbnail">
-													<?php echo wp_get_attachment_image($item, 'large'); ?>
+													<?php echo wp_get_attachment_image($item, 'full'); ?>
 												</div>
 												<p class = "hero_carousel_title"><?php echo get_the_title($item); ?></p>
 											</div>
